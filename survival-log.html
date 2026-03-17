@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>freshman → sophomore → junior: a survival log</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --yellow: #f4c430;
+    --orange: #f4a261;
+    --red: #e63946;
+    --dark: #0a0a0a;
+    --mid: #141414;
+    --surface: #1c1c1c;
+    --border: #2a2a2a;
+    --text: #e0dbd2;
+    --muted: #666;
+    --white: #fff;
+  }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
+    font-size: 14.5px;
+    line-height: 1.85;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 6rem;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3.5rem;
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--yellow);
+    letter-spacing: -0.02em;
+  }
+  .nav-right {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .pill {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  /* BIG YEAR COUNTER — hero replacement */
+  .hero-counter {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .year-block {
+    flex: 1;
+    padding: 1.6rem 1rem;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .year-block:last-child { border-right: none; }
+  .year-block .yr-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    display: block;
+  }
+  .year-block .yr-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.4rem;
+  }
+  .year-block.y1 { background: var(--mid); }
+  .year-block.y1 .yr-num { color: #4ecdc4; }
+  .year-block.y2 { background: var(--mid); }
+  .year-block.y2 .yr-num { color: var(--orange); }
+  .year-block.y3 { background: #1a1400; }
+  .year-block.y3 .yr-num { color: var(--yellow); }
+  .year-block .yr-status {
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .status-done { background: rgba(78,205,196,0.12); color: #4ecdc4; border: 1px solid rgba(78,205,196,0.2); }
+  .status-done2 { background: rgba(244,162,97,0.12); color: var(--orange); border: 1px solid rgba(244,162,97,0.2); }
+  .status-now { background: rgba(244,196,48,0.12); color: var(--yellow); border: 1px solid rgba(244,196,48,0.2); }
+
+  /* POST META */
+  .post-meta {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .badge {
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+  .badge-y { background: rgba(244,196,48,0.1); color: var(--yellow); border: 1px solid rgba(244,196,48,0.25); }
+  .badge-o { background: rgba(244,162,97,0.1); color: var(--orange); border: 1px solid rgba(244,162,97,0.25); }
+  .post-date { color: var(--muted); font-size: 0.68rem; margin-left: auto; }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--yellow);
+    font-weight: 900;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: var(--muted);
+    border-left: 3px solid var(--yellow);
+    padding-left: 1rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* SECTION HEADERS */
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--white);
+    margin: 3rem 0 1rem;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  h2 .yr-tag {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+  }
+  h2 .tag-1 { background: rgba(78,205,196,0.12); color: #4ecdc4; }
+  h2 .tag-2 { background: rgba(244,162,97,0.12); color: var(--orange); }
+  h2 .tag-3 { background: rgba(244,196,48,0.12); color: var(--yellow); }
+
+  /* BODY */
+  p {
+    margin-bottom: 1.4rem;
+    color: #ccc7be;
+  }
+
+  /* PULL QUOTE */
+  blockquote {
+    margin: 2rem 0;
+    padding: 1.2rem 1.4rem 1.2rem 2.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--yellow);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    position: relative;
+  }
+  blockquote p {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  /* CALLOUT */
+  .callout {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    margin: 2rem 0;
+    background: var(--surface);
+  }
+  .callout.orange { border-left: 3px solid var(--orange); }
+  .callout.red { border-left: 3px solid var(--red); border-color: var(--red); background: rgba(230,57,70,0.05); }
+  .callout.green { border-left: 3px solid #4ecdc4; }
+  .callout-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .callout.orange .callout-label { color: var(--orange); }
+  .callout.red .callout-label { color: var(--red); }
+  .callout.green .callout-label { color: #4ecdc4; }
+  .callout p { margin: 0; font-size: 0.88rem; }
+
+  /* STAT ROW */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+  .stat {
+    background: var(--surface);
+    padding: 1rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    display: block;
+    letter-spacing: -0.03em;
+    color: var(--yellow);
+  }
+  .stat-desc {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.2rem;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-period {
+    padding: 0.9rem 1rem;
+    background: var(--surface);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+  .tl-content {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+  .tl-content strong { color: var(--white); font-weight: 700; }
+
+  .divider {
+    text-align: center;
+    color: #2a2a2a;
+    margin: 2.5rem 0;
+    letter-spacing: 0.5em;
+    font-size: 0.8rem;
+  }
+
+  code {
+    background: #1e1e1e;
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: #7ab8d4;
+  }
+
+  /* FOOTNOTES */
+  .footnotes {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .footnotes h2 {
+    font-size: 1rem;
+    margin: 0 0 1rem;
+    display: block;
+    gap: 0;
+  }
+  .footnotes h2::before { content: '// '; color: var(--yellow); }
+  .footnotes ul { list-style: none; }
+  .footnotes li {
+    padding: 0.55rem 0 0.55rem 1.2rem;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 0.82rem;
+    color: var(--muted);
+    position: relative;
+  }
+  .footnotes li::before { content: '→'; position: absolute; left: 0; color: var(--yellow); }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.7rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* IMAGES */
+  img.blog-image {
+    max-width: 85%;
+    height: auto;
+    border-radius: 12px;
+    margin: 2rem auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border);
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<nav style="justify-content: flex-end;">
+  <div class="nav-right">
+    <span class="pill"><a href="index.html" style="color: inherit; text-decoration: none;">home</a></span>
+    <span class="pill"><a href="blog.html" style="color: inherit; text-decoration: none;">blog</a></span>
+    <span class="pill"><a href="about.html" style="color: inherit; text-decoration: none;">about</a></span>
+  </div>
+</nav>
+
+<h1 style="font-family: 'Space Mono', monospace; font-size: 1.5rem; line-height: 1.4; font-weight: normal; letter-spacing: normal;">
+  <span style="color: #3a86ff; display: block;">freshman → sophomore → junior.</span>
+  <span style="color: #4ecdc4; display: block;">a survival log</span>
+</h1>
+
+<p class="subtitle">not a guide. not advice. just what actually happened and what i wish i knew — from someone who's almost made it to the other side.</p>
+
+<div class="divider">* * *</div>
+
+<!-- YEAR 1 -->
+<h2>year one <span class="yr-tag tag-1">freshman</span></h2>
+
+<p>you show up. you have a backpack that's a little too new. you've color-coded your schedule. you have a water bottle. you are <em>ready</em>.</p>
+
+<p>week three, the color-coded schedule is in a drawer somewhere and you're eating cereal at 11pm trying to figure out if you can skip a lecture you've already skipped twice. the gap between "who you thought you were going to be in college" and "who you actually are in college" hits fast. and it hits quietly, which is the worst kind.</p>
+
+<blockquote>
+  <p>freshman year is the only time in your life you'll genuinely believe that going to bed at midnight is "staying up late." cherish it.</p>
+</blockquote>
+
+<p>the social stuff is weird too. everyone's performing a version of themselves that's like 30% more confident than the real one, including you. everyone's pretending they have it figured out. no one has it figured out. this is fine. this is actually the most normal thing that will ever happen to you.</p>
+
+<div class="callout green">
+  <span class="callout-label">what actually mattered</span>
+  <p>showing up to things even when you didn't feel like it. not the lectures — those matter too — but the random events, the small conversations, the people you met while doing nothing in particular. that's the actual education.</p>
+</div>
+
+<p>academically: you will bomb at least one exam you thought you'd ace. you will ace at least one you thought you'd bomb. the lesson here is that your gut is not a reliable predictor of performance, which is terrifying, but also kind of liberating once you accept it.</p>
+
+<div class="divider">* * *</div>
+
+<!-- YEAR 2 -->
+<h2>year two <span class="yr-tag tag-2">sophomore</span></h2>
+
+<img src="sp1.jpg" alt="Spider-Man crouching and looking defeated with a text bubble saying NEVER GIVE UP" class="blog-image" />
+
+<p>the sophomore slump is real. nobody warns you about it properly. they mention it like it's a minor inconvenience — a little dip, a bit of a blah period. it is not that. it is a full identity crisis disguised as a semester.</p>
+
+<p>freshman year had the energy of novelty. everything was new, everything was a first. sophomore year is when the novelty runs out and you're left with just... the reality of it. the routine. the realization that you chose a major and now you have to actually study it for three more years. the first time you think "wait, what am i even doing here?"</p>
+
+<blockquote>
+  <p>the sophomore slump isn't about grades or friends or any one thing. it's about the gap between what you imagined college would be and what it actually is. and that gap is always bigger than expected.</p>
+</blockquote>
+
+<div class="callout orange">
+  <span class="callout-label">the comparison trap</span>
+  <p>this is also the year everyone's LinkedIn starts looking terrifying. internships, research positions, clubs they're "leading." you are eating instant noodles and rewatching a show for the third time. both can be true at the same time and both are valid. try to remember that.</p>
+</div>
+
+<p>but here's what sophomore year actually teaches you — and it does teach you, just slowly and painfully: you learn what you actually like versus what you thought you were supposed to like. you figure out which friendships are real. you start to have a more honest relationship with your own limits. that's not nothing. that's actually kind of everything.</p>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-period">sept – oct</div>
+    <div class="tl-content"><strong>false confidence.</strong> you've done this before. you know how college works now. famous last words.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-period">nov</div>
+    <div class="tl-content"><strong>the wall.</strong> midterms, burnout, existential questions at 2am. the classic combo.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-period">jan – feb</div>
+    <div class="tl-content"><strong>the pivot.</strong> you start actually trying different things. less performing, more just doing.</div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-period">may</div>
+    <div class="tl-content"><strong>surviving it.</strong> you made it. you're different. you can't fully explain how, but you are.</div>
+  </div>
+</div>
+
+<div class="divider">* * *</div>
+
+<!-- YEAR 3 -->
+<h2>year three <span class="yr-tag tag-3">junior (next semester)</span></h2>
+
+<img src="sp2.jpg" alt="Spider-Man laying defeated on the ground with text bubbles saying OKAY, I'M DONE. I'M DONE." class="blog-image" />
+
+<p>i'm not there yet. next semester. but i've talked to enough people ahead of me to know the general shape of it, and also i've been in college long enough to have some guesses.</p>
+
+<p>junior year is apparently when things get real in a different way. not the existential "who am i" kind of real from sophomore year. more like the "oh, the world is actually out there and it's actually coming" kind of real. internships. grad school. careers. the questions stop being abstract and start having deadlines attached to them.</p>
+
+<blockquote>
+  <p>everyone who's been through it says the same thing: junior year is when you stop surviving college and start actually using it. i'm choosing to believe them.</p>
+</blockquote>
+
+<div class="callout red">
+  <span class="callout-label">the thing nobody says out loud</span>
+  <p>by junior year, most people around you will seem like they have a plan. a lot of them don't. the ones who do have a plan will change it. this is not a reassuring fact, but it is a true one.</p>
+</div>
+
+<p>what i'm actually going in with: lower expectations for how put-together i'll feel, higher expectations for what i can get done. two years of this taught me that the feeling of readiness never really comes. you just go anyway. that's the whole trick.</p>
+
+<p>and yeah, part of me is nervous. but a bigger part is just — curious. which i think is the right energy to bring to a year that's going to be different no matter what.</p>
+
+<div class="divider">* * *</div>
+
+<!-- CLOSING -->
+<h2>so what's the actual takeaway</h2>
+
+<p>honestly? i don't know if there's a clean one. i came in thinking college was a system you could figure out if you were smart enough or organized enough. it's not. it's more like a thing that happens to you while you're busy trying to figure it out.</p>
+
+<p>freshman year teaches you that confidence and competence are not the same thing. sophomore year teaches you that comfort and growth are not the same thing. and junior year — i'll report back, but i'm guessing it teaches you that planning and doing are not the same thing.</p>
+
+<p>the common thread: the thing you think is the thing usually isn't the thing. the real stuff sneaks in sideways. keep showing up anyway.</p>
+
+<footer>
+  <span>dev.log — personal opinions only</span>
+  <span>not a guide. just a log.</span>
+</footer>
+
+</body>
+</html>

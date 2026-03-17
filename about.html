@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ishan Shrestha — about</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body style="font-family: 'Times New Roman', Times, serif; font-size: 1.2rem;">
+    <main class="page">
+      <nav class="top-bar">
+        <div class="top-bar-links">
+          <a href="mailto:placeholder@email.com">email</a>
+          <span class="top-bar-sep">·</span>
+          <a href="https://github.com/placeholder">github</a>
+          <span class="top-bar-sep">·</span>
+          <a href="https://linkedin.com/in/placeholder">linkedin</a>
+        </div>
+      </nav>
+
+      <header class="page-header">
+        <style>
+          .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+          }
+          .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+          }
+          .info-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+          }
+          .info-val {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text);
+          }
+        </style>
+        <div class="avatar">
+          <img src="eshan.jpg" alt="Portrait of Ishan" />
+        </div>
+        <div class="header-text">
+          <div class="eyebrow" style="text-transform: lowercase; font-size: 1.2rem; margin-bottom: 0.5rem;">hey, i'm </div>
+          <h1 class="title" style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; line-height: 1.3;">
+            Ishan Shrestha.
+          </h1>
+          <div class="links-row" style="margin-top: 1.5rem;">
+            <a href="index.html" class="pill-link">home</a>
+            <a href="blog.html" class="pill-link">blog</a>
+            <a href="about.html" class="pill-link" style="background: var(--fg); color: var(--bg);">about</a>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">info</h2>
+        <div class="section-body">
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-label">Major</span>
+              <span class="info-val">Comp Sci</span>
+            </div>
+            <div class="info-card">
+              <span class="info-label">University</span>
+              <span class="info-val">University of Idaho</span>
+            </div>
+           
+            <div class="info-card">
+              <span class="info-label">Location</span>
+              <span class="info-val">Based in US</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">bio</h2>
+        <div class="section-body">
+          <article class="item">
+            <div class="item-main">
+              <p class="item-copy" style="margin-bottom: 1rem;">
+                Honestly? I don't have it all figured out, but I like writing code that actually works and figuring out why things break. 
+              </p>
+              <p class="item-copy">
+                I'm navigating the middle of my CS degree, which means half my time is spent on theory and the other half is spent shipping side projects just to see what sticks. My favorite kind of software is fast, simple, and doesn't try to be too smart. I’m just trying to keep my dependencies low and my learning rate high.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">contact</h2>
+        <div class="section-body">
+          <article class="item">
+            <div class="item-main">
+              <p class="item-copy">
+                email: <a href="mailto:shresthaishan65@gmail.com" style="color: inherit;">shresthaishan65@gmail.com</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>built by ishan shrestha</span>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
