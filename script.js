@@ -68,6 +68,7 @@ function openChat(initials, name, avClass, status, statusColor) {
 }
 
 const quotes = [
+  "with great power comes with great responsibility",
   "you cannot add days to your life but you can add life to your days",
   "sometimes it is better to be kind than right",
   "sunset is the proof that the ending can be beautiful too"
