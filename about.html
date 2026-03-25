@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body style="font-family: 'Times New Roman', Times, serif; font-size: 1.2rem;">
+  <body>
     <main class="page">
       <nav class="top-bar">
         <div class="top-bar-links">
@@ -26,45 +26,16 @@
       </nav>
 
       <header class="page-header">
-        <style>
-          .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1rem;
-          }
-          .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 1rem;
-          }
-          .info-label {
-            display: block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--muted);
-            margin-bottom: 0.3rem;
-          }
-          .info-val {
-            display: block;
-            font-size: 0.95rem;
-            color: var(--text);
-          }
-        </style>
         <div class="avatar">
           <img src="eshan.jpg" alt="Portrait of Ishan" />
         </div>
         <div class="header-text">
-          <div class="eyebrow" style="text-transform: lowercase; font-size: 1.2rem; margin-bottom: 0.5rem;">hey, i'm </div>
-          <h1 class="title" style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; line-height: 1.3;">
-            Ishan Shrestha.
-          </h1>
-          <div class="links-row" style="margin-top: 1.5rem;">
+          <div class="eyebrow">hey, i'm </div>
+          <h1 class="title">Ishan Shrestha.</h1>
+          <div class="links-row">
             <a href="index.html" class="pill-link">home</a>
             <a href="blog.html" class="pill-link">blog</a>
-            <a href="about.html" class="pill-link" style="background: var(--fg); color: var(--bg);">about</a>
+            <a href="about.html" class="pill-link active">about</a>
           </div>
         </div>
       </header>
@@ -95,7 +66,7 @@
         <div class="section-body">
           <article class="item">
             <div class="item-main">
-              <p class="item-copy" style="margin-bottom: 1rem;">
+              <p class="item-copy">
                 Honestly? I don't have it all figured out, but I like writing code that actually works and figuring out why things break. 
               </p>
               <p class="item-copy">
@@ -120,7 +91,9 @@
       </section>
 
       <footer class="footer">
-        <span>built by ishan shrestha</span>
+        <span>built by eshan</span>
+        <span class="dot">•</span>
+        <span>last updated 2026</span>
       </footer>
     </main>
 
