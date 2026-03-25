@@ -19,7 +19,7 @@ function displayQuoteOfTheDay() {
   const quoteIndex = Math.floor(Math.random() * quotes.length);
   const selectedQuote = quotes[quoteIndex];
 
-  quoteContainer.innerHTML = `[MOTD] "${selectedQuote}"`;
+  quoteContainer.innerHTML = `<span style="font-style: italic;">"${selectedQuote}"</span>`;
 }
 
 // --- Initialization ---
