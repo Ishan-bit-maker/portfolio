@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ishan Shrestha | Immersive 3D Experience</title>
+  <title>Ishan Shrestha | Software Engineer</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,110 +13,152 @@
 </head>
 <body>
 
-  <!-- The proxy track allows native scrolling to trigger the timeline -->
-  <div class="scroll-track"></div>
+  <!-- Cinematic Video Background -->
+  <div class="video-container">
+    <!-- Using a sleek abstract particles placeholder video from Mixkit -->
+    <video autoplay loop muted playsinline id="bg-video">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-particles-in-a-dark-background-3000-large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
 
-  <!-- Glassmorphic Navbar (Outer viewport overlay) -->
-  <nav class="navbar ui-element">
+  <!-- Glassmorphic Navbar -->
+  <nav class="navbar">
     <div class="nav-container">
       <a href="#" class="brand-logo">IS.</a>
       <div class="nav-links">
-        <span class="nav-link">Scroll to Explore</span>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- 3D Viewport inside fixed window -->
-  <div class="viewport">
-    
-    <!-- 3D Scene holding all layers -->
-    <div class="scene" id="scene">
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container hero-content animate-on-scroll">
+      <div class="hero-badge">Available for opportunities</div>
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Ishan Shrestha</span>
+      </h1>
+      <p class="hero-subtitle">
+        I build high-performance applications, interactive web experiences, and scalable systems. Turning complex problems into elegant solutions.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About & Tech Stack -->
+  <section id="about" class="section">
+    <div class="container animate-on-scroll">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <div class="divider"></div>
+      </div>
       
-      <!-- Video Backdrop layer -->
-      <div class="layer backdrop-layer" data-z="-4000">
-        <video autoplay loop muted playsinline id="bg-video">
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-particles-in-a-dark-background-3000-large.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+      <div class="about-grid">
+        <div class="about-text glass-panel">
+          <h3>My Background</h3>
+          <p>
+            I am a passionate software developer who enjoys looking under the hood to see how things break and why they were built that way. From low-level C++ engines to interactive modern web interfaces, I strive for simplicity, efficiency, and impact.
+          </p>
+          <p>
+             I thrive in environments where learning is continuous. Whether it's writing a chess engine in WebAssembly or exploring pathfinding algorithms, I love the craftsmanship of code.
+          </p>
+        </div>
+        
+        <div class="skills-panel glass-panel">
+          <h3>Tech Stack</h3>
+          <div class="skills-container">
+            <span class="skill-chip">C++</span>
+            <span class="skill-chip">WebAssembly</span>
+            <span class="skill-chip">JavaScript (ES6+)</span>
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">HTML5 / CSS3</span>
+            <span class="skill-chip">Algorithms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container animate-on-scroll">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="divider"></div>
       </div>
 
-      <!-- Layer 1: Hero -->
-      <div class="layer content-layer" data-z="0">
-        <header class="hero">
-          <div class="hero-content">
-            <div class="hero-badge">Welcome to Depth</div>
-            <h1 class="hero-title">
-              Hi, I'm <span class="gradient-text">Ishan Shrestha</span>
-            </h1>
-            <p class="hero-subtitle">
-              I build immersive, high-performance applications bridging art and engineering. Keep scrolling to travel through my workspace.
-            </p>
-          </div>
-        </header>
-      </div>
-
-      <!-- Layer 2: About / Tech Stack -->
-      <div class="layer content-layer" data-z="-2000">
-        <section class="deep-section">
-          <div class="section-header">
-             <h2 class="section-title">My Logic</h2>
-             <div class="divider"></div>
-          </div>
-          <div class="glass-panel text-panel">
-            <p>From low-level C++ engines to interactive modern web interfaces, I strive for simplicity, efficiency, and impact.</p>
-            <div class="skills-container" style="margin-top: 20px;">
-              <span class="skill-chip">C++</span>
-              <span class="skill-chip">WebAssembly</span>
-              <span class="skill-chip">JavaScript (ES6+)</span>
-              <span class="skill-chip">React & Node</span>
-              <span class="skill-chip">Python</span>
-              <span class="skill-chip">3D Math</span>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- Layer 3: Projects Box 1 -->
-      <div class="layer content-layer project-layer" data-z="-3500">
+      <div class="projects-grid">
+        <!-- Project 1 -->
         <a href="https://ishan-bit-maker.github.io/Chess-wasm-engine/" target="_blank" class="project-card glass-panel group">
           <div class="project-content">
             <div class="project-meta">C++ / Wasm</div>
-            <h3 class="project-title">Chess Engine</h3>
-            <p class="project-desc">A high-performance engine compiled to WebAssembly with minimax search and alpha-beta pruning.</p>
+            <h3 class="project-title group-hover:gradient-text">Chess Engine</h3>
+            <p class="project-desc">A high-performance chess engine compiled to WebAssembly. Features move generation, minimax search with alpha-beta pruning, and an interactive UI.</p>
+          </div>
+          <div class="project-arrow">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </div>
         </a>
-      </div>
 
-      <!-- Layer 4: Projects Box 2 (Offset horizontally and deeper) -->
-      <div class="layer content-layer project-layer offset-right" data-z="-4500">
+        <!-- Project 2 -->
         <a href="#" class="project-card glass-panel group">
           <div class="project-content">
             <div class="project-meta">Algorithms</div>
-            <h3 class="project-title">Maze Pathfinding</h3>
-            <p class="project-desc">Arbitrary maze grid solver profiling deep combinations of BFS, DFS, and A* strategies.</p>
+            <h3 class="project-title group-hover:gradient-text">Maze Pathfinding</h3>
+            <p class="project-desc">A deep dive building a solver for arbitrary mazes grids using BFS, DFS, and A*, profiling their time and space complexity in real scenarios.</p>
+          </div>
+          <div class="project-arrow">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+        
+         <!-- Project 3 -->
+        <a href="#" class="project-card glass-panel group">
+          <div class="project-content">
+            <div class="project-meta">Financial Modeling</div>
+            <h3 class="project-title group-hover:gradient-text">CrashProof Simulator</h3>
+            <p class="project-desc">Personal financial survival simulator calculating runways under various economic crisis scenarios including recessions and hyperinflation.</p>
+          </div>
+          <div class="project-arrow">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </div>
         </a>
       </div>
-
-      <!-- Layer 5: Contact Footer -->
-      <div class="layer content-layer" data-z="-6500">
-        <footer class="deep-footer glass-panel">
-          <h2 class="footer-title">Let's build something deep.</h2>
-          <p class="footer-subtitle">I'm currently looking for new opportunities.</p>
-          <a href="mailto:shresthaishan65@gmail.com" class="btn btn-primary" style="margin-bottom: 20px;">Say Hello</a>
-          <div class="footer-bottom">
-            <p>&copy; 2026 Ishan Shrestha. Interactive Z-Space Edition.</p>
-          </div>
-        </footer>
-      </div>
-
     </div>
-  </div>
+  </section>
 
-  <!-- Persistent screen overlay elements if needed -->
-  <div class="depth-indicator ui-element">
-    Depth: <span id="depth-value">0</span> Z
-  </div>
+  <!-- Footer / Contact -->
+  <footer id="contact" class="footer glass-panel">
+    <div class="container animate-on-scroll">
+      <h2 class="footer-title">Let's build something amazing together.</h2>
+      <p class="footer-subtitle">I'm currently looking for new opportunities. My inbox is always open.</p>
+      
+      <a href="mailto:shresthaishan65@gmail.com" class="btn btn-primary" style="margin-bottom: 40px; display: inline-block;">Say Hello</a>
+      
+      <div class="footer-socials">
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" target="_blank" aria-label="LinkedIn" class="social-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/Ishan-bit-maker" target="_blank" aria-label="GitHub" class="social-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Ishan Shrestha. Designed with passion.</p>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

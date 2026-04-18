@@ -1,88 +1,94 @@
 /**
- * Immersive 3D Z-Axis Engine
+ * Cinematic Monochrome Portfolio Interactions
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const scene = document.getElementById('scene');
-    const layers = document.querySelectorAll('.layer');
-    const depthIndicator = document.getElementById('depth-value');
+  
+  // --- Dynamic Scroll Interactivity ---
+  const heroContent = document.querySelector('.hero-content');
+  const videoBg = document.getElementById('bg-video');
+  const glassPanels = document.querySelectorAll('.glass-panel');
+  const scrollElements = document.querySelectorAll(".animate-on-scroll");
+
+  const handleScrollEffects = () => {
+    const scrollY = window.scrollY;
     
-    // Virtual Camera Properties
-    let cameraZ = 0;
-    
-    // Mouse tracking for global scene rotation
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetRotateX = 0;
-    let targetRotateY = 0;
-    let currentRotateX = 0;
-    let currentRotateY = 0;
-
-    // Track mouse
-    window.addEventListener('mousemove', (e) => {
-        // Normalize mouse to -1 to 1
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = (e.clientY / window.innerHeight) * 2 - 1;
-        
-        // Target rotation (max 5 degrees)
-        targetRotateY = mouseX * 5; 
-        targetRotateX = -mouseY * 5; 
-    });
-
-    // Main Engine Loop
-    function render() {
-        // 1. Calculate scroll depth
-        // We map the physical scroll height to virtual Z-space
-        const scrollY = window.scrollY;
-        
-        // This multiplier controls how fast you fly through Z space based on scroll
-        cameraZ = scrollY * 1.5; 
-        
-        if (depthIndicator) {
-            depthIndicator.textContent = Math.floor(cameraZ);
-        }
-
-        // 2. Smooth interpolate scene rotation (Lerp)
-        currentRotateX += (targetRotateX - currentRotateX) * 0.1;
-        currentRotateY += (targetRotateY - currentRotateY) * 0.1;
-
-        // Apply global scene translation (moving camera forward = moving scene backward in translateZ)
-        // Note: moving the scene deeply requires mapping cameraZ to translateZ
-        scene.style.transform = `translateZ(${cameraZ}px) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
-
-        // 3. Render individual layers
-        layers.forEach(layer => {
-            // Get original deep Z position defined in HTML data-z
-            const layerZ = parseFloat(layer.getAttribute('data-z')) || 0;
-            
-            // Because the scene translates by +cameraZ, the layer's actual position relative to the camera is layerZ + cameraZ.
-            // If layerZ + cameraZ > 0, it has flown PAST the camera (behind the user).
-            const relativeZ = layerZ + cameraZ;
-
-            // Fade logic based on distance from camera
-            let opacity = 1;
-            
-            if (relativeZ > 100) {
-                // Flown past camera, fade out quickly
-                opacity = 0;
-            } else if (relativeZ < -3000) {
-                // Too far in the distance, fade out into the dark
-                opacity = Math.max(0, 1 - (Math.abs(relativeZ) - 3000) / 2000);
-            } else {
-                // Fade in beautifully as it gets close
-                opacity = 1;
-            }
-
-            layer.style.opacity = opacity;
-            layer.style.transform = `translateZ(${layerZ}px)`;
-            
-            // Turn off pointer events if invisible to not block clicks
-            layer.style.pointerEvents = opacity < 0.1 ? 'none' : 'auto';
-        });
-
-        requestAnimationFrame(render);
+    // 1. Hero Parallax & Fade
+    if (heroContent) {
+      // Move down slightly and fade out as you scroll down
+      const opacity = Math.max(0, 1 - scrollY / 600);
+      const translateY = scrollY * 0.4;
+      const scale = Math.max(0.9, 1 - scrollY / 2000);
+      heroContent.style.transform = `translateY(${translateY}px) scale(${scale})`;
+      heroContent.style.opacity = opacity;
     }
 
-    // Start Engine
-    render();
+    // 2. Video Parallax
+    if (videoBg) {
+      // Subtle shift in the video to give massive depth
+      videoBg.style.transform = `translateY(${scrollY * 0.15}px)`;
+    }
+
+    // 3. Dynamic Glass Panel Scaling
+    glassPanels.forEach(panel => {
+      const rect = panel.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // If the panel is in the middle of the screen, scale it up slightly
+      const centerDistance = Math.abs(windowHeight / 2 - (rect.top + rect.height / 2));
+      const maxDist = windowHeight;
+      const progress = 1 - Math.min(centerDistance / maxDist, 1);
+      
+      // Calculate depth scale: ranges from 0.95 to 1.0
+      const scaleDepth = 0.95 + (0.05 * progress);
+      // Subtle glow based on center proximity
+      const glow = 15 * progress;
+      
+      // We only apply this if we aren't overriding a hover state, but for a cinematic feel
+      // a continuous transform is awesome.
+      // Make sure we only manipulate the transition scale if it exists.
+      panel.style.transform = `scale(${scaleDepth})`;
+      panel.style.boxShadow = `0 ${5 + glow}px ${20 + glow*2}px rgba(0, 0, 0, 0.5)`;
+    });
+
+    // 4. Standard Entrance Fades
+    scrollElements.forEach((el) => {
+      const elementTop = el.getBoundingClientRect().top;
+      if (elementTop <= window.innerHeight * 0.85) {
+        el.classList.add("is-visible");
+      }
+    });
+  };
+
+  // Trigger on load
+  handleScrollEffects();
+
+  // Trigger on scroll via requestAnimationFrame for max performance
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScrollEffects();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // --- Smooth Scrolling for Anchor Links ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
 });
