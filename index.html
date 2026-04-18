@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Ishan Shrestha — software engineer. High-performance apps, interactive web, scalable systems." />
     <title>Ishan Shrestha</title>
     <style>
       :root {
@@ -137,7 +138,8 @@
       }
 
       .proj-desc,
-      .work-meta {
+      .work-meta,
+      .post-meta {
         color: var(--muted);
         font-size: 13px;
       }
@@ -211,18 +213,18 @@
           <a href="#home">home</a>
           <a href="blog.html">blog</a>
           <a href="#dailies">dailies</a>
-          <a href="about.html">about</a>
+          <a href="#about">about</a>
           <a href="#resources">resources</a>
         </nav>
 
         <div id="home" class="hero">
-          <img class="avatar" src="eshan.jpg" alt="avatar" />
+          <img class="avatar" src="eshan.jpg" alt="Portrait of Ishan Shrestha" />
           <div>
-            <h1>ishan</h1>
-            <div class="sub">remote / backend &amp; systems engineer</div>
-            <p class="blurb">programmer. tinkerer. interested in how computers actually work.</p>
-            <p class="blurb">i like small binaries, boring tools, and deleting code.</p>
-            <p class="now">currently re-reading: <em>Operating Systems: Three Easy Pieces</em> (still waiting for the “easy” part).</p>
+            <h1>Ishan Shrestha</h1>
+            <div class="sub">based in US · comp sci @ University of Idaho · software engineer</div>
+            <p class="blurb">I build high-performance applications, interactive web experiences, and scalable systems. I like looking under the hood to see how things break and why they were built that way.</p>
+            <p class="blurb">Half theory, half shipping side projects — chess engines in WebAssembly, pathfinding, whatever sticks. Fast, simple software that doesn’t try to be too smart.</p>
+            <p class="now">currently: <em>available for opportunities</em>. my inbox is usually open — <a href="mailto:shresthaishan65@gmail.com">shresthaishan65@gmail.com</a></p>
           </div>
         </div>
       </header>
@@ -233,26 +235,17 @@
           <div class="list">
             <div class="row">
               <div>
-                <div>ai/ml startup</div>
-                <div class="work-meta">full stack engineer <span class="faint">·</span> infra + product</div>
+                <div>University of Idaho</div>
+                <div class="work-meta">computer science · student</div>
               </div>
-              <div class="work-meta">(sep 2025 – oct 2025)</div>
+              <div class="work-meta">(present)</div>
             </div>
-
             <div class="row">
               <div>
-                <div>edtech startup</div>
-                <div class="work-meta">senior product engineer <span class="faint">·</span> shipping + analytics</div>
+                <div>personal &amp; side projects</div>
+                <div class="work-meta">full stack · systems · wasm · algorithms</div>
               </div>
-              <div class="work-meta">(2023 – 2025)</div>
-            </div>
-
-            <div class="row">
-              <div>
-                <div>freelance</div>
-                <div class="work-meta">fs engineer <span class="faint">·</span> websites + systems</div>
-              </div>
-              <div class="work-meta">(2019 – 2023)</div>
+              <div class="work-meta">(ongoing)</div>
             </div>
           </div>
         </section>
@@ -262,24 +255,23 @@
           <div class="list">
             <div>
               <div>
-                <a href="#" rel="noopener">memorer</a><span class="tag">wip</span>
+                <a href="https://ishan-bit-maker.github.io/Chess-wasm-engine/" rel="noopener noreferrer">Chess Engine</a>
               </div>
-              <div class="proj-desc">memory for conversational ai; a tiny store with opinions.</div>
+              <div class="proj-desc">High-performance chess engine compiled to WebAssembly — move generation, minimax with alpha-beta pruning, interactive UI.</div>
             </div>
 
             <div>
-              <div><a href="#" rel="noopener">preemptive-threads</a><span class="tag">wip</span></div>
-              <div class="proj-desc">a small <span class="faint">#![no_std]</span> preemptive threading experiment in rust.</div>
+              <div>
+                <a href="#" rel="noopener noreferrer">Maze Pathfinding</a><span class="tag">wip</span>
+              </div>
+              <div class="proj-desc">Solver for arbitrary maze grids using BFS, DFS, and A*; profiling time and space in practice.</div>
             </div>
 
             <div>
-              <div><a href="#" rel="noopener">brainfuck interpreter</a></div>
-              <div class="proj-desc">a turing-complete toy that taught me humility.</div>
-            </div>
-
-            <div>
-              <div><a href="#" rel="noopener">markov text generator</a></div>
-              <div class="proj-desc">bigram-based generator; writes like a sleep-deprived README.</div>
+              <div>
+                <a href="#" rel="noopener noreferrer">CrashProof Simulator</a>
+              </div>
+              <div class="proj-desc">Personal financial survival simulator — runways under recessions, hyperinflation, and crisis scenarios.</div>
             </div>
           </div>
         </section>
@@ -289,15 +281,11 @@
           <div class="list">
             <div class="post-line">
               <div class="post-date">2026-03-15</div>
-              <div><a href="survival-log.html" rel="noopener">a survival log</a></div>
+              <div><a href="survival-log.html">A Survival Log</a></div>
             </div>
             <div class="post-line">
               <div class="post-date">2026-02-10</div>
-              <div><a href="#" rel="noopener">keeping things small</a></div>
-            </div>
-            <div class="post-line">
-              <div class="post-date">2026-01-04</div>
-              <div><a href="#" rel="noopener">notes on debugging without hope</a></div>
+              <div><a href="blog.html">Keeping Things Small</a></div>
             </div>
           </div>
         </section>
@@ -306,12 +294,24 @@
           <h2 id="h-dailies" class="h2">dailies</h2>
           <div class="list">
             <div class="row">
-              <div>2026-04-11 <span class="faint">·</span> shipped a thing; didn’t tweet about it</div>
-              <div class="muted">3 lines learned</div>
+              <div>2026-04-18 <span class="faint">·</span> shipped a minimalist homepage; deleted a lot of CSS</div>
+              <div class="muted">—</div>
             </div>
             <div class="row">
-              <div>2026-04-06 <span class="faint">·</span> deleted code; felt powerful</div>
-              <div class="muted">-412 loc</div>
+              <div>2026-03-15 <span class="faint">·</span> published survival log draft</div>
+              <div class="muted">personal</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" aria-labelledby="h-about">
+          <h2 id="h-about" class="h2">about</h2>
+          <div class="list">
+            <div>
+              Honestly? I don’t have it all figured out, but I like writing code that actually works and figuring out why things break.
+            </div>
+            <div class="muted">
+              I’m navigating the middle of my CS degree — keeping dependencies low and my learning rate high.
             </div>
           </div>
         </section>
@@ -319,28 +319,29 @@
         <section id="resources" aria-labelledby="h-resources">
           <h2 id="h-resources" class="h2">resources</h2>
           <div class="list">
-            <div><a href="#" rel="noopener">reading list</a> <span class="muted">— the books that rearranged my brain</span></div>
-            <div><a href="#" rel="noopener">tools</a> <span class="muted">— editor, terminal setup, and a few scripts</span></div>
-            <div><a href="#" rel="noopener">notes</a> <span class="muted">— small writeups; mostly for future me</span></div>
+            <div><a href="blog.html">writing</a> <span class="muted">— notes on software, learning, keeping things simple</span></div>
+            <div><a href="about.html">about page</a> <span class="muted">— longer bio &amp; contact</span></div>
+            <div><a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a> <span class="muted">— code</span></div>
+            <div><a href="https://www.linkedin.com/in/ishan-shrestha-365944280" rel="noopener noreferrer">linkedin</a> <span class="muted">— profile</span></div>
           </div>
 
           <div class="termline">
             <span class="prompt">$</span> cat /dev/aesthetic <span class="cursor" aria-hidden="true"></span>
           </div>
           <div class="imgstrip" aria-label="aesthetic images">
-            <img src="img1.jpg" alt="aesthetic 1" loading="lazy" />
-            <img src="img2.jpg" alt="aesthetic 2" loading="lazy" />
-            <img src="img3.jpg" alt="aesthetic 3" loading="lazy" />
-            <img src="img4.jpg" alt="aesthetic 4" loading="lazy" />
-            <img src="img5.jpg" alt="aesthetic 5" loading="lazy" />
-            <img src="img8.jpg" alt="aesthetic 6" loading="lazy" />
+            <img src="img1.jpg" alt="" loading="lazy" />
+            <img src="img2.jpg" alt="" loading="lazy" />
+            <img src="img3.jpg" alt="" loading="lazy" />
+            <img src="img4.jpg" alt="" loading="lazy" />
+            <img src="img5.jpg" alt="" loading="lazy" />
+            <img src="img8.jpg" alt="" loading="lazy" />
           </div>
         </section>
       </main>
 
       <footer>
-        <a href="https://github.com/Ishan-bit-maker" rel="noopener">github</a>
-        <a href="#" rel="noopener">x/twtr</a>
+        <a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a>
+        <a href="#" rel="noopener noreferrer">x/twtr</a>
       </footer>
     </div>
   </body>
