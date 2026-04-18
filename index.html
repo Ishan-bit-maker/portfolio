@@ -15,10 +15,8 @@
 
   <!-- Cinematic Video Background -->
   <div class="video-container">
-    <!-- Using a sleek abstract particles placeholder video from Mixkit -->
-    <video autoplay loop muted playsinline id="bg-video">
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-particles-in-a-dark-background-3000-large.mp4" type="video/mp4">
-    </video>
+    <!-- Using your download.gif as the background -->
+    <img src="download.gif" id="bg-video" alt="background loop">
     <div class="video-overlay"></div>
   </div>
 
@@ -53,12 +51,11 @@
         </div>
       </div>
       
-      <!-- Intro GIF Animation -->
+      <!-- Intro GIF Animation (optional extra) -->
       <div class="hero-gif animate-on-scroll">
-        <!-- You can replace this src with your own 'intro.gif' if you have one locally! -->
-        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGwyMm0xYjF3eGFwcDJrcTNxaDNxeDQ4YmQzYzUxaHNsaWY3Y2ozZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9IgzoKnwFNmISR8I/giphy.webp" 
+        <img src="download.gif" 
              alt="Intro Animation" 
-             style="border-radius: 12px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); filter: grayscale(100%);">
+             style="border-radius: 12px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); filter: grayscale(100%); mix-blend-mode: lighten;">
       </div>
     </div>
   </header>
@@ -150,8 +147,8 @@
   <!-- Aesthetic / Terminal Gallery Section -->
   <section id="aesthetic" class="section">
     <div class="container animate-on-scroll">
-      <div class="terminal-header typewriter">
-        $ cat /dev/aesthetic<span class="term-cursor">_</span>
+      <div class="terminal-header typewriter" style="color: #4ade80;">
+        $ cat /dev/aesthetic<span class="term-cursor" style="background-color: #4ade80;">_</span>
       </div>
       
       <div class="aesthetic-grid">
