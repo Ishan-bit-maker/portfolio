@@ -265,15 +265,15 @@ h1, h2, h3, .brand-logo {
   white-space: nowrap;
 }
 
-/* Scattered State */
-.hero-gallery:not(.is-organized) .img-1 { top: 40px; left: 110px; transform: rotate(-15deg); z-index: 8; }
-.hero-gallery:not(.is-organized) .img-2 { top: 60px; left: 90px; transform: rotate(10deg); z-index: 7; }
-.hero-gallery:not(.is-organized) .img-3 { top: 20px; left: 130px; transform: rotate(-5deg); z-index: 6; }
-.hero-gallery:not(.is-organized) .img-4 { top: 50px; left: 150px; transform: rotate(25deg); z-index: 5; }
-.hero-gallery:not(.is-organized) .img-5 { top: 30px; left: 80px; transform: rotate(-25deg); z-index: 4; }
-.hero-gallery:not(.is-organized) .img-6 { top: 70px; left: 140px; transform: rotate(5deg); z-index: 3; }
-.hero-gallery:not(.is-organized) .img-7 { top: 10px; left: 100px; transform: rotate(-10deg); z-index: 2; }
-.hero-gallery:not(.is-organized) .img-8 { top: 80px; left: 120px; transform: rotate(15deg); z-index: 1; }
+/* Scattered State (Messy Stack) */
+.hero-gallery:not(.is-organized) .img-1 { top: 41px; left: 122px; transform: rotate(-15deg); z-index: 8; }
+.hero-gallery:not(.is-organized) .img-2 { top: 38px; left: 118px; transform: rotate(10deg); z-index: 7; }
+.hero-gallery:not(.is-organized) .img-3 { top: 43px; left: 121px; transform: rotate(-5deg); z-index: 6; }
+.hero-gallery:not(.is-organized) .img-4 { top: 40px; left: 124px; transform: rotate(25deg); z-index: 5; }
+.hero-gallery:not(.is-organized) .img-5 { top: 42px; left: 117px; transform: rotate(-22deg); z-index: 4; }
+.hero-gallery:not(.is-organized) .img-6 { top: 39px; left: 125px; transform: rotate(8deg); z-index: 3; }
+.hero-gallery:not(.is-organized) .img-7 { top: 44px; left: 119px; transform: rotate(-12deg); z-index: 2; }
+.hero-gallery:not(.is-organized) .img-8 { top: 41px; left: 123px; transform: rotate(18deg); z-index: 1; }
 
 /* Organized 4x2 Grid State */
 .hero-gallery.is-organized .gallery-hint {
