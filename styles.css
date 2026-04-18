@@ -231,68 +231,61 @@ h1, h2, h3, .brand-logo {
   gap: 40px;
 }
 
-/* Interactive Gallery */
-.hero-gallery {
-  position: relative;
-  width: 320px;
-  height: 160px;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  flex-shrink: 0;
+/* Aesthetic Terminal Gallery Section */
+.terminal-header {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.1rem;
+  color: #a3a3a3;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
-.gallery-img {
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
+.term-prompt {
+  color: #4ade80; /* Hacker green */
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.term-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2rem;
+  background-color: #a3a3a3;
+  margin-left: 5px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.aesthetic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.img-wrapper {
+  aspect-ratio: 1/1;
+  overflow: hidden;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 1px solid var(--surface-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.gallery-hint {
-  position: absolute;
-  bottom: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  opacity: 1;
-  transition: opacity 0.5s;
-  letter-spacing: 1px;
-  white-space: nowrap;
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
 }
 
-/* Scattered State (Messy Stack) */
-.hero-gallery:not(.is-organized) .img-1 { top: 41px; left: 122px; transform: rotate(-15deg); z-index: 8; }
-.hero-gallery:not(.is-organized) .img-2 { top: 38px; left: 118px; transform: rotate(10deg); z-index: 7; }
-.hero-gallery:not(.is-organized) .img-3 { top: 43px; left: 121px; transform: rotate(-5deg); z-index: 6; }
-.hero-gallery:not(.is-organized) .img-4 { top: 40px; left: 124px; transform: rotate(25deg); z-index: 5; }
-.hero-gallery:not(.is-organized) .img-5 { top: 42px; left: 117px; transform: rotate(-22deg); z-index: 4; }
-.hero-gallery:not(.is-organized) .img-6 { top: 39px; left: 125px; transform: rotate(8deg); z-index: 3; }
-.hero-gallery:not(.is-organized) .img-7 { top: 44px; left: 119px; transform: rotate(-12deg); z-index: 2; }
-.hero-gallery:not(.is-organized) .img-8 { top: 41px; left: 123px; transform: rotate(18deg); z-index: 1; }
-
-/* Organized 4x2 Grid State */
-.hero-gallery.is-organized .gallery-hint {
-  opacity: 0;
-}
-.hero-gallery.is-organized .img-1 { top: 0; left: 0; transform: rotate(0); }
-.hero-gallery.is-organized .img-2 { top: 0; left: 82px; transform: rotate(0); }
-.hero-gallery.is-organized .img-3 { top: 0; left: 164px; transform: rotate(0); }
-.hero-gallery.is-organized .img-4 { top: 0; left: 246px; transform: rotate(0); }
-.hero-gallery.is-organized .img-5 { top: 82px; left: 0; transform: rotate(0); }
-.hero-gallery.is-organized .img-6 { top: 82px; left: 82px; transform: rotate(0); }
-.hero-gallery.is-organized .img-7 { top: 82px; left: 164px; transform: rotate(0); }
-.hero-gallery.is-organized .img-8 { top: 82px; left: 246px; transform: rotate(0); }
-
-/* Add subtle hover lift when organized */
-.hero-gallery.is-organized .gallery-img:hover {
-  transform: scale(1.1) rotate(0deg);
-  z-index: 10;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+.img-wrapper:hover img {
+  transform: scale(1.05);
 }
 
 .hero-badge {
@@ -501,8 +494,8 @@ h1, h2, h3, .brand-logo {
     text-align: center;
   }
   
-  .hero-gallery {
-    display: none;
+  .aesthetic-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-grid {
