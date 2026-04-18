@@ -11,10 +11,15 @@
   --accent-primary: #e0e0e0;
   --accent-secondary: #aaaaaa;
   --accent-gradient: linear-gradient(135deg, #ffffff, #666666);
+
+  /* Terminal-ish Accents (from your screenshot) */
+  --accent-teal: #4ecdc4;
+  --accent-green: #4ade80;
   
   /* Typography */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   
   /* Tokens */
   --radius-md: 12px;
@@ -389,18 +394,26 @@ h1, h2, h3, .brand-logo {
 }
 
 .project-meta {
+  font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--accent-primary);
-  font-weight: 600;
+  color: var(--accent-green);
+  font-weight: 500;
   margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .project-title {
+  font-family: var(--font-mono);
   font-size: 1.5rem;
+  color: var(--accent-teal);
   margin-bottom: 15px;
   transition: var(--transition);
+}
+
+.project-card:hover .project-title {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .project-desc {
@@ -514,4 +527,13 @@ h1, h2, h3, .brand-logo {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* About page avatar sizing */
+.avatar img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 1px solid var(--surface-border);
 }
