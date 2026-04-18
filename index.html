@@ -1,189 +1,347 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ishan Shrestha | Software Engineer</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&family=Great+Vibes&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Ishan Shrestha</title>
+    <style>
+      :root {
+        --bg: #0d0d0d;
+        --fg: rgba(245, 245, 240, 0.92);
+        --muted: rgba(245, 245, 240, 0.52);
+        --faint: rgba(245, 245, 240, 0.28);
+        --link: rgba(245, 245, 240, 0.92);
+        --sel-bg: rgba(245, 245, 240, 0.14);
+        --sel-fg: rgba(245, 245, 240, 0.95);
+        --max: 680px;
+      }
 
-  <!-- Cinematic Video Background -->
-  <div class="video-container">
-    <!-- Using a sleek abstract particles placeholder video from Mixkit -->
-    <video autoplay loop muted playsinline id="bg-video">
-      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-particles-in-a-dark-background-3000-large.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
-  </div>
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 15px;
+        line-height: 1.75;
+      }
 
-  <!-- Glassmorphic Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="brand-logo">IS.</a>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="blog.html" class="nav-link">Writing</a>
-        <a href="#aesthetic" class="nav-link">Aesthetic</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-    </div>
-  </nav>
+      ::selection {
+        background: var(--sel-bg);
+        color: var(--sel-fg);
+      }
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="container hero-layout" style="justify-content: center; text-align: center;">
-      <div class="hero-content animate-on-scroll" style="margin: 0 auto;">
-        <div class="hero-badge">Available for opportunities</div>
-        <h1 class="hero-title">
-          Hi, I'm <span class="gradient-text">Ishan Shrestha</span>
-        </h1>
-        <p class="hero-subtitle" style="margin-left: auto; margin-right: auto;">
-          I build high-performance applications, interactive web experiences, and scalable systems. Turning complex problems into elegant solutions.
-        </p>
-        <div class="hero-actions" style="justify-content: center;">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-        </div>
-      </div>
-    </div>
-  </header>
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover { opacity: 0.78; }
+      a:focus-visible {
+        outline: 2px solid var(--faint);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      a:visited { color: var(--link); }
 
-  <!-- About & Tech Stack -->
-  <section id="about" class="section">
-    <div class="container animate-on-scroll">
-      <div class="section-header">
-        <h2 class="section-title">About Me</h2>
-        <div class="divider"></div>
-      </div>
-      
-      <div class="about-grid">
-        <div class="about-text glass-panel">
-          <h3>My Background</h3>
-          <p>
-            I am a passionate software developer who enjoys looking under the hood to see how things break and why they were built that way. From low-level C++ engines to interactive modern web interfaces, I strive for simplicity, efficiency, and impact.
-          </p>
-          <p>
-             I thrive in environments where learning is continuous. Whether it's writing a chess engine in WebAssembly or exploring pathfinding algorithms, I love the craftsmanship of code.
-          </p>
-        </div>
-        
-        <div class="skills-panel glass-panel">
-          <h3>Tech Stack</h3>
-          <div class="skills-container">
-            <span class="skill-chip">C++</span>
-            <span class="skill-chip">WebAssembly</span>
-            <span class="skill-chip">JavaScript (ES6+)</span>
-            <span class="skill-chip">React</span>
-            <span class="skill-chip">Node.js</span>
-            <span class="skill-chip">Python</span>
-            <span class="skill-chip">HTML5 / CSS3</span>
-            <span class="skill-chip">Algorithms</span>
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 38px 18px 80px;
+      }
+
+      header { margin-top: 8px; }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 28px;
+        color: var(--muted);
+      }
+      nav a { color: inherit; }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid var(--faint);
+        background: rgba(245, 245, 240, 0.04);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+      }
+
+      .sub {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .blurb { margin: 10px 0 0; }
+
+      .now {
+        margin: 12px 0 0;
+        color: var(--muted);
+      }
+      .now em { font-style: normal; color: var(--fg); }
+
+      main { margin-top: 46px; }
+      section { margin-top: 44px; }
+
+      .h2 {
+        margin: 0 0 14px;
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--muted);
+      }
+      .h2::before { content: "## "; color: var(--faint); }
+
+      .list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        align-items: baseline;
+      }
+
+      .muted { color: var(--muted); }
+      .faint { color: var(--faint); }
+
+      .tag {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 0 6px;
+        border: 1px solid var(--faint);
+        border-radius: 999px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .proj-desc,
+      .work-meta {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .post-line {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 14px;
+      }
+      .post-date { color: var(--muted); font-size: 13px; }
+
+      .termline {
+        margin: 18px 0 10px;
+        color: var(--muted);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .prompt { color: var(--fg); }
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1.05em;
+        background: var(--faint);
+        vertical-align: -0.1em;
+        margin-left: 2px;
+      }
+
+      .imgstrip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 132px;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 6px 0 2px;
+        scrollbar-width: thin;
+      }
+      .imgstrip::-webkit-scrollbar { height: 8px; }
+      .imgstrip::-webkit-scrollbar-thumb { background: rgba(245, 245, 240, 0.16); }
+      .imgstrip::-webkit-scrollbar-track { background: rgba(245, 245, 240, 0.05); }
+
+      .imgstrip img {
+        width: 132px;
+        height: 168px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid rgba(245, 245, 240, 0.10);
+        background: rgba(245, 245, 240, 0.03);
+      }
+
+      footer {
+        margin-top: 54px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(245, 245, 240, 0.10);
+        display: flex;
+        gap: 14px;
+        color: var(--muted);
+      }
+      footer a { color: inherit; }
+
+      @media (max-width: 520px) {
+        .wrap { padding-top: 26px; }
+        .row { grid-template-columns: 1fr; gap: 6px; }
+        .post-line { grid-template-columns: 84px 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <nav aria-label="Primary">
+          <a href="#home">home</a>
+          <a href="blog.html">blog</a>
+          <a href="#dailies">dailies</a>
+          <a href="about.html">about</a>
+          <a href="#resources">resources</a>
+        </nav>
+
+        <div id="home" class="hero">
+          <img class="avatar" src="eshan.jpg" alt="avatar" />
+          <div>
+            <h1>ishan</h1>
+            <div class="sub">remote / backend &amp; systems engineer</div>
+            <p class="blurb">programmer. tinkerer. interested in how computers actually work.</p>
+            <p class="blurb">i like small binaries, boring tools, and deleting code.</p>
+            <p class="now">currently re-reading: <em>Operating Systems: Three Easy Pieces</em> (still waiting for the “easy” part).</p>
           </div>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <section id="work" aria-labelledby="h-work">
+          <h2 id="h-work" class="h2">work</h2>
+          <div class="list">
+            <div class="row">
+              <div>
+                <div>ai/ml startup</div>
+                <div class="work-meta">full stack engineer <span class="faint">·</span> infra + product</div>
+              </div>
+              <div class="work-meta">(sep 2025 – oct 2025)</div>
+            </div>
+
+            <div class="row">
+              <div>
+                <div>edtech startup</div>
+                <div class="work-meta">senior product engineer <span class="faint">·</span> shipping + analytics</div>
+              </div>
+              <div class="work-meta">(2023 – 2025)</div>
+            </div>
+
+            <div class="row">
+              <div>
+                <div>freelance</div>
+                <div class="work-meta">fs engineer <span class="faint">·</span> websites + systems</div>
+              </div>
+              <div class="work-meta">(2019 – 2023)</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" aria-labelledby="h-projects">
+          <h2 id="h-projects" class="h2">projects</h2>
+          <div class="list">
+            <div>
+              <div>
+                <a href="#" rel="noopener">memorer</a><span class="tag">wip</span>
+              </div>
+              <div class="proj-desc">memory for conversational ai; a tiny store with opinions.</div>
+            </div>
+
+            <div>
+              <div><a href="#" rel="noopener">preemptive-threads</a><span class="tag">wip</span></div>
+              <div class="proj-desc">a small <span class="faint">#![no_std]</span> preemptive threading experiment in rust.</div>
+            </div>
+
+            <div>
+              <div><a href="#" rel="noopener">brainfuck interpreter</a></div>
+              <div class="proj-desc">a turing-complete toy that taught me humility.</div>
+            </div>
+
+            <div>
+              <div><a href="#" rel="noopener">markov text generator</a></div>
+              <div class="proj-desc">bigram-based generator; writes like a sleep-deprived README.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="blog" aria-labelledby="h-posts">
+          <h2 id="h-posts" class="h2">recent posts</h2>
+          <div class="list">
+            <div class="post-line">
+              <div class="post-date">2026-03-15</div>
+              <div><a href="survival-log.html" rel="noopener">a survival log</a></div>
+            </div>
+            <div class="post-line">
+              <div class="post-date">2026-02-10</div>
+              <div><a href="#" rel="noopener">keeping things small</a></div>
+            </div>
+            <div class="post-line">
+              <div class="post-date">2026-01-04</div>
+              <div><a href="#" rel="noopener">notes on debugging without hope</a></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="dailies" aria-labelledby="h-dailies">
+          <h2 id="h-dailies" class="h2">dailies</h2>
+          <div class="list">
+            <div class="row">
+              <div>2026-04-11 <span class="faint">·</span> shipped a thing; didn’t tweet about it</div>
+              <div class="muted">3 lines learned</div>
+            </div>
+            <div class="row">
+              <div>2026-04-06 <span class="faint">·</span> deleted code; felt powerful</div>
+              <div class="muted">-412 loc</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="resources" aria-labelledby="h-resources">
+          <h2 id="h-resources" class="h2">resources</h2>
+          <div class="list">
+            <div><a href="#" rel="noopener">reading list</a> <span class="muted">— the books that rearranged my brain</span></div>
+            <div><a href="#" rel="noopener">tools</a> <span class="muted">— editor, terminal setup, and a few scripts</span></div>
+            <div><a href="#" rel="noopener">notes</a> <span class="muted">— small writeups; mostly for future me</span></div>
+          </div>
+
+          <div class="termline">
+            <span class="prompt">$</span> cat /dev/aesthetic <span class="cursor" aria-hidden="true"></span>
+          </div>
+          <div class="imgstrip" aria-label="aesthetic images">
+            <img src="img1.jpg" alt="aesthetic 1" loading="lazy" />
+            <img src="img2.jpg" alt="aesthetic 2" loading="lazy" />
+            <img src="img3.jpg" alt="aesthetic 3" loading="lazy" />
+            <img src="img4.jpg" alt="aesthetic 4" loading="lazy" />
+            <img src="img5.jpg" alt="aesthetic 5" loading="lazy" />
+            <img src="img8.jpg" alt="aesthetic 6" loading="lazy" />
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <a href="https://github.com/Ishan-bit-maker" rel="noopener">github</a>
+        <a href="#" rel="noopener">x/twtr</a>
+      </footer>
     </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container animate-on-scroll">
-      <div class="section-header">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <a href="https://ishan-bit-maker.github.io/Chess-wasm-engine/" target="_blank" class="project-card glass-panel group">
-          <div class="project-content">
-            <div class="project-meta">C++ / Wasm</div>
-            <h3 class="project-title">Chess Engine</h3>
-            <p class="project-desc">A high-performance chess engine compiled to WebAssembly. Features move generation, minimax search with alpha-beta pruning, and an interactive UI.</p>
-          </div>
-          <div class="project-arrow">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
-        </a>
-
-        <!-- Project 2 -->
-        <a href="#" class="project-card glass-panel group">
-          <div class="project-content">
-            <div class="project-meta">Algorithms</div>
-            <h3 class="project-title">Maze Pathfinding</h3>
-            <p class="project-desc">A deep dive building a solver for arbitrary mazes grids using BFS, DFS, and A*, profiling their time and space complexity in real scenarios.</p>
-          </div>
-          <div class="project-arrow">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
-        </a>
-        
-         <!-- Project 3 -->
-        <a href="#" class="project-card glass-panel group">
-          <div class="project-content">
-            <div class="project-meta">Financial Modeling</div>
-            <h3 class="project-title">CrashProof Simulator</h3>
-            <p class="project-desc">Personal financial survival simulator calculating runways under various economic crisis scenarios including recessions and hyperinflation.</p>
-          </div>
-          <div class="project-arrow">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Aesthetic / Terminal Gallery Section -->
-  <section id="aesthetic" class="section">
-    <div class="container animate-on-scroll">
-      <div class="terminal-header">
-        <span class="term-prompt">$</span> cat /dev/aesthetic <span class="term-cursor">_</span>
-      </div>
-      
-      <div class="aesthetic-grid">
-        <div class="img-wrapper"><img src="img1.jpg" alt="Aesthetic 1"></div>
-        <div class="img-wrapper"><img src="img2.jpg" alt="Aesthetic 2"></div>
-        <div class="img-wrapper"><img src="img3.jpg" alt="Aesthetic 3"></div>
-        <div class="img-wrapper"><img src="img4.jpg" alt="Aesthetic 4"></div>
-        <div class="img-wrapper"><img src="img5.jpg" alt="Aesthetic 5"></div>
-        <div class="img-wrapper"><img src="img8.jpg" alt="Aesthetic 6"></div>
-        <div class="img-wrapper"><img src="img1.jpg" alt="Aesthetic 7"></div>
-        <div class="img-wrapper"><img src="img2.jpg" alt="Aesthetic 8"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer / Contact -->
-  <footer id="contact" class="footer glass-panel">
-    <div class="container animate-on-scroll">
-      <h2 class="footer-title">Let's build something amazing together.</h2>
-      <p class="footer-subtitle">I'm currently looking for new opportunities. My inbox is always open.</p>
-      
-      <a href="mailto:shresthaishan65@gmail.com" class="btn btn-primary" style="margin-bottom: 40px; display: inline-block;">Say Hello</a>
-      
-      <div class="footer-socials">
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" target="_blank" aria-label="LinkedIn" class="social-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <!-- GitHub -->
-        <a href="https://github.com/Ishan-bit-maker" target="_blank" aria-label="GitHub" class="social-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-        </a>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2026 Ishan Shrestha. Designed with passion.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+  </body>
 </html>
