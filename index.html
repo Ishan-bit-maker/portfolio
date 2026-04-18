@@ -15,8 +15,10 @@
 
   <!-- Cinematic Video Background -->
   <div class="video-container">
-    <!-- Using your download.gif as the background -->
-    <img src="download.gif" id="bg-video" alt="background loop">
+    <!-- Using a sleek abstract particles placeholder video from Mixkit -->
+    <video autoplay loop muted playsinline id="bg-video">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-particles-in-a-dark-background-3000-large.mp4" type="video/mp4">
+    </video>
     <div class="video-overlay"></div>
   </div>
 
@@ -36,26 +38,19 @@
 
   <!-- Hero Section -->
   <header class="hero">
-    <div class="container hero-layout" style="justify-content: space-between; text-align: left;">
-      <div class="hero-content animate-on-scroll" style="margin: 0; max-width: 500px;">
+    <div class="container hero-layout" style="justify-content: center; text-align: center;">
+      <div class="hero-content animate-on-scroll" style="margin: 0 auto;">
         <div class="hero-badge">Available for opportunities</div>
         <h1 class="hero-title">
           Hi, I'm <span class="gradient-text">Ishan Shrestha</span>
         </h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" style="margin-left: auto; margin-right: auto;">
           I build high-performance applications, interactive web experiences, and scalable systems. Turning complex problems into elegant solutions.
         </p>
-        <div class="hero-actions">
+        <div class="hero-actions" style="justify-content: center;">
           <a href="#projects" class="btn btn-primary">View My Work</a>
           <a href="#contact" class="btn btn-secondary">Get In Touch</a>
         </div>
-      </div>
-      
-      <!-- Intro GIF Animation (optional extra) -->
-      <div class="hero-gif animate-on-scroll">
-        <img src="download.gif" 
-             alt="Intro Animation" 
-             style="border-radius: 12px; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); filter: grayscale(100%); mix-blend-mode: lighten;">
       </div>
     </div>
   </header>
@@ -147,8 +142,8 @@
   <!-- Aesthetic / Terminal Gallery Section -->
   <section id="aesthetic" class="section">
     <div class="container animate-on-scroll">
-      <div class="terminal-header typewriter" style="color: #4ade80;">
-        $ cat /dev/aesthetic<span class="term-cursor" style="background-color: #4ade80;">_</span>
+      <div class="terminal-header">
+        <span class="term-prompt">$</span> cat /dev/aesthetic <span class="term-cursor">_</span>
       </div>
       
       <div class="aesthetic-grid">
