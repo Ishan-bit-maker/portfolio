@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>ryver</title>
+    <style>
+      :root {
+        --bg: #0d0d0d;
+        --fg: rgba(245, 245, 240, 0.92);
+        --muted: rgba(245, 245, 240, 0.52);
+        --faint: rgba(245, 245, 240, 0.28);
+        --link: rgba(245, 245, 240, 0.92);
+        --sel-bg: rgba(245, 245, 240, 0.14);
+        --sel-fg: rgba(245, 245, 240, 0.95);
+        --max: 680px;
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      ::selection {
+        background: var(--sel-bg);
+        color: var(--sel-fg);
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover { opacity: 0.78; }
+      a:focus-visible {
+        outline: 2px solid var(--faint);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      a:visited { color: var(--link); }
+
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 38px 18px 80px;
+      }
+
+      header { margin-top: 8px; }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 28px;
+        color: var(--muted);
+      }
+      nav a { color: inherit; }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        object-fit: cover;
+        border: 1px solid var(--faint);
+        background: rgba(245, 245, 240, 0.04);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+      }
+
+      .sub {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .blurb { margin: 10px 0 0; }
+
+      .now {
+        margin: 12px 0 0;
+        color: var(--muted);
+      }
+      .now em { font-style: normal; color: var(--fg); }
+
+      main { margin-top: 46px; }
+      section { margin-top: 44px; }
+
+      .h2 {
+        margin: 0 0 14px;
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--muted);
+      }
+      .h2::before { content: "## "; color: var(--faint); }
+
+      .list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 18px;
+        align-items: baseline;
+      }
+
+      .muted { color: var(--muted); }
+      .faint { color: var(--faint); }
+
+      .tag {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 0 6px;
+        border: 1px solid var(--faint);
+        border-radius: 999px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .proj-desc,
+      .work-meta,
+      .post-meta {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .post-line {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 14px;
+      }
+      .post-date { color: var(--muted); font-size: 13px; }
+
+      .termline {
+        margin: 18px 0 10px;
+        color: var(--muted);
+        font-size: 13px;
+        white-space: nowrap;
+      }
+      .prompt { color: var(--fg); }
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1.05em;
+        background: var(--faint);
+        vertical-align: -0.1em;
+        margin-left: 2px;
+      }
+
+      .imgstrip {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 132px;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 6px 0 2px;
+        scrollbar-width: thin;
+      }
+      .imgstrip::-webkit-scrollbar { height: 8px; }
+      .imgstrip::-webkit-scrollbar-thumb { background: rgba(245, 245, 240, 0.16); }
+      .imgstrip::-webkit-scrollbar-track { background: rgba(245, 245, 240, 0.05); }
+
+      .imgstrip img {
+        width: 132px;
+        height: 168px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid rgba(245, 245, 240, 0.10);
+        background: rgba(245, 245, 240, 0.03);
+      }
+
+      footer {
+        margin-top: 54px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(245, 245, 240, 0.10);
+        display: flex;
+        gap: 14px;
+        color: var(--muted);
+      }
+      footer a { color: inherit; }
+
+      @media (max-width: 520px) {
+        .wrap { padding-top: 26px; }
+        .row { grid-template-columns: 1fr; gap: 6px; }
+        .post-line { grid-template-columns: 84px 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <nav aria-label="Primary">
+          <a href="#home">home</a>
+          <a href="#blog">blog</a>
+          <a href="#dailies">dailies</a>
+          <a href="#about">about</a>
+          <a href="#resources">resources</a>
+        </nav>
+
+        <div id="home" class="hero">
+          <img class="avatar" src="eshan.jpg" alt="avatar" />
+          <div>
+            <h1>ryver</h1>
+            <div class="sub">remote / backend &amp; systems engineer · somewhere between coffee and kernel docs</div>
+            <p class="blurb">programmer. tinkerer. interested in how computers actually work.</p>
+            <p class="blurb">i like small binaries, boring tools, and deleting code.</p>
+            <p class="now">currently re-reading: <em>Operating Systems: Three Easy Pieces</em> (still waiting for the “easy” part).</p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="work" aria-labelledby="h-work">
+          <h2 id="h-work" class="h2">work</h2>
+          <div class="list">
+            <div class="row">
+              <div>
+                <div>ai/ml startup</div>
+                <div class="work-meta">full stack engineer <span class="faint">·</span> infra + product</div>
+              </div>
+              <div class="work-meta">(sep 2025 – oct 2025)</div>
+            </div>
+
+            <div class="row">
+              <div>
+                <div>edtech startup</div>
+                <div class="work-meta">senior product engineer <span class="faint">·</span> shipping + analytics</div>
+              </div>
+              <div class="work-meta">(2023 – 2025)</div>
+            </div>
+
+            <div class="row">
+              <div>
+                <div>freelance</div>
+                <div class="work-meta">fs engineer <span class="faint">·</span> websites + systems</div>
+              </div>
+              <div class="work-meta">(2019 – 2023)</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" aria-labelledby="h-projects">
+          <h2 id="h-projects" class="h2">projects</h2>
+          <div class="list">
+            <div>
+              <div>
+                <a href="#" rel="noopener">memorer</a><span class="tag">wip</span>
+              </div>
+              <div class="proj-desc">memory for conversational ai; a tiny store with opinions.</div>
+            </div>
+
+            <div>
+              <div><a href="#" rel="noopener">preemptive-threads</a><span class="tag">wip</span></div>
+              <div class="proj-desc">a small <span class="faint">#![no_std]</span> preemptive threading experiment in rust.</div>
+            </div>
+
+            <div>
+              <div><a href="#" rel="noopener">brainfuck interpreter</a></div>
+              <div class="proj-desc">a turing-complete toy that taught me humility.</div>
+            </div>
+
+            <div>
+              <div><a href="#" rel="noopener">markov text generator</a></div>
+              <div class="proj-desc">bigram-based generator; writes like a sleep-deprived README.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="blog" aria-labelledby="h-posts">
+          <h2 id="h-posts" class="h2">recent posts</h2>
+          <div class="list">
+            <div class="post-line">
+              <div class="post-date">2026-03-15</div>
+              <div><a href="#" rel="noopener">a survival log</a></div>
+            </div>
+            <div class="post-line">
+              <div class="post-date">2026-02-10</div>
+              <div><a href="#" rel="noopener">keeping things small</a></div>
+            </div>
+            <div class="post-line">
+              <div class="post-date">2026-01-04</div>
+              <div><a href="#" rel="noopener">notes on debugging without hope</a></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="dailies" aria-labelledby="h-dailies">
+          <h2 id="h-dailies" class="h2">dailies</h2>
+          <div class="list">
+            <div class="row">
+              <div>2026-04-11 <span class="faint">·</span> shipped a thing; didn’t tweet about it</div>
+              <div class="muted">3 lines learned</div>
+            </div>
+            <div class="row">
+              <div>2026-04-06 <span class="faint">·</span> deleted code; felt powerful</div>
+              <div class="muted">-412 loc</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" aria-labelledby="h-about">
+          <h2 id="h-about" class="h2">about</h2>
+          <div class="list">
+            <div>
+              i care about performance, clarity, and tools that don’t fight you.
+              <span class="muted">i’m happiest when the stack is boring and the profiler is quiet.</span>
+            </div>
+            <div class="muted">
+              interests: systems, compilers, ui that feels like text, and old computers that still boot.
+            </div>
+          </div>
+        </section>
+
+        <section id="resources" aria-labelledby="h-resources">
+          <h2 id="h-resources" class="h2">resources</h2>
+          <div class="list">
+            <div><a href="#" rel="noopener">reading list</a> <span class="muted">— the books that rearranged my brain</span></div>
+            <div><a href="#" rel="noopener">tools</a> <span class="muted">— editor, terminal setup, and a few scripts</span></div>
+            <div><a href="#" rel="noopener">notes</a> <span class="muted">— small writeups; mostly for future me</span></div>
+          </div>
+
+          <div class="termline">
+            <span class="prompt">$</span> cat /dev/aesthetic <span class="cursor" aria-hidden="true"></span>
+          </div>
+          <div class="imgstrip" aria-label="aesthetic images">
+            <img src="img1.jpg" alt="aesthetic 1" loading="lazy" />
+            <img src="img2.jpg" alt="aesthetic 2" loading="lazy" />
+            <img src="img3.jpg" alt="aesthetic 3" loading="lazy" />
+            <img src="img4.jpg" alt="aesthetic 4" loading="lazy" />
+            <img src="img5.jpg" alt="aesthetic 5" loading="lazy" />
+            <img src="img8.jpg" alt="aesthetic 6" loading="lazy" />
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <a href="https://github.com/yourhandle" rel="noopener">github</a>
+        <a href="https://x.com/yourhandle" rel="noopener">x/twtr</a>
+      </footer>
+    </div>
+  </body>
+</html>
+
