@@ -234,7 +234,7 @@ h1, h2, h3, .brand-logo {
 /* Interactive Gallery */
 .hero-gallery {
   position: relative;
-  width: 320px;
+  width: 160px;
   height: 160px;
   cursor: pointer;
   transform-style: preserve-3d;
@@ -266,27 +266,19 @@ h1, h2, h3, .brand-logo {
 }
 
 /* Scattered State (Messy Stack) */
-.hero-gallery:not(.is-organized) .img-1 { top: 41px; left: 122px; transform: rotate(-15deg); z-index: 8; }
-.hero-gallery:not(.is-organized) .img-2 { top: 38px; left: 118px; transform: rotate(10deg); z-index: 7; }
-.hero-gallery:not(.is-organized) .img-3 { top: 43px; left: 121px; transform: rotate(-5deg); z-index: 6; }
-.hero-gallery:not(.is-organized) .img-4 { top: 40px; left: 124px; transform: rotate(25deg); z-index: 5; }
-.hero-gallery:not(.is-organized) .img-5 { top: 42px; left: 117px; transform: rotate(-22deg); z-index: 4; }
-.hero-gallery:not(.is-organized) .img-6 { top: 39px; left: 125px; transform: rotate(8deg); z-index: 3; }
-.hero-gallery:not(.is-organized) .img-7 { top: 44px; left: 119px; transform: rotate(-12deg); z-index: 2; }
-.hero-gallery:not(.is-organized) .img-8 { top: 41px; left: 123px; transform: rotate(18deg); z-index: 1; }
+.hero-gallery:not(.is-organized) .img-1 { top: 41px; left: 42px; transform: rotate(-15deg); z-index: 4; }
+.hero-gallery:not(.is-organized) .img-2 { top: 38px; left: 38px; transform: rotate(10deg); z-index: 3; }
+.hero-gallery:not(.is-organized) .img-3 { top: 43px; left: 41px; transform: rotate(-5deg); z-index: 2; }
+.hero-gallery:not(.is-organized) .img-4 { top: 40px; left: 45px; transform: rotate(25deg); z-index: 1; }
 
-/* Organized 4x2 Grid State */
+/* Organized 2x2 Grid State */
 .hero-gallery.is-organized .gallery-hint {
   opacity: 0;
 }
 .hero-gallery.is-organized .img-1 { top: 0; left: 0; transform: rotate(0); }
 .hero-gallery.is-organized .img-2 { top: 0; left: 82px; transform: rotate(0); }
-.hero-gallery.is-organized .img-3 { top: 0; left: 164px; transform: rotate(0); }
-.hero-gallery.is-organized .img-4 { top: 0; left: 246px; transform: rotate(0); }
-.hero-gallery.is-organized .img-5 { top: 82px; left: 0; transform: rotate(0); }
-.hero-gallery.is-organized .img-6 { top: 82px; left: 82px; transform: rotate(0); }
-.hero-gallery.is-organized .img-7 { top: 82px; left: 164px; transform: rotate(0); }
-.hero-gallery.is-organized .img-8 { top: 82px; left: 246px; transform: rotate(0); }
+.hero-gallery.is-organized .img-3 { top: 82px; left: 0; transform: rotate(0); }
+.hero-gallery.is-organized .img-4 { top: 82px; left: 82px; transform: rotate(0); }
 
 /* Add subtle hover lift when organized */
 .hero-gallery.is-organized .gallery-img:hover {
