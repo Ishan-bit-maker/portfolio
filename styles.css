@@ -54,6 +54,10 @@ h1, h2, h3, .brand-logo {
 }
 
 .gradient-text {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400; /* Cursive fonts usually look best at normal weight */
+  font-size: 1.3em; /* Slightly bump size so it matches the bold sans-serif */
+  padding-right: 15px; /* Prevent italics from getting clipped */
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
