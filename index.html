@@ -146,7 +146,8 @@
       .split-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 28px 36px;
+        gap: 28px;
+        column-gap: min(5.5rem, 12vw);
         align-items: start;
       }
 
@@ -229,6 +230,10 @@
       .muted { color: var(--muted); }
       .faint { color: var(--faint); }
 
+      #blog .list {
+        gap: 1.75rem;
+      }
+
       .post-line {
         display: grid;
         grid-template-columns: 92px 1fr;
@@ -238,6 +243,20 @@
         color: var(--green-date);
         font-size: 13px;
         opacity: 0.9;
+      }
+
+      #blog .list a,
+      #blog .list a:visited {
+        color: #ffffff;
+        text-decoration: none;
+      }
+      #blog .list a:hover {
+        color: #ffffff;
+        opacity: 0.78;
+        text-decoration: none;
+      }
+      #blog .list a:focus-visible {
+        outline-color: #ffffff;
       }
 
       .termline {
@@ -295,15 +314,16 @@
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
         gap: 18px;
-        color: var(--fg);
+        color: #ffffff;
         font-size: 13px;
       }
-      footer a {
-        color: var(--fg);
+      footer a,
+      footer a:visited {
+        color: #ffffff;
         text-decoration: none;
       }
       footer a:hover {
-        color: var(--fg);
+        color: #ffffff;
         opacity: 0.72;
         text-decoration: none;
       }
