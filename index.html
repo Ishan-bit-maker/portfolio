@@ -19,8 +19,8 @@
         --blue-dim: rgba(115, 177, 255, 0.85);
         --green-date: #5c7e5c;
         --term-green: #4ade80;
-        --proj-name: #5eead4;
-        --proj-name-hover: #7ff5e1;
+        --proj-name: #7ff5e1;
+        --proj-name-hover: #f0fffc;
         --wip: #c9a06c;
         --sel-bg: rgba(115, 177, 255, 0.18);
         --sel-fg: var(--fg);
@@ -60,6 +60,10 @@
         border-radius: 4px;
       }
       a:visited { color: var(--blue); }
+      a.proj-link,
+      a.proj-link:visited {
+        color: var(--proj-name);
+      }
 
       .wrap {
         max-width: var(--max);
@@ -89,24 +93,7 @@
       }
 
       .hero {
-        display: grid;
-        grid-template-columns: 52px 1fr;
-        gap: 16px;
-        align-items: start;
-      }
-
-      .avatar {
-        width: 52px;
-        height: 52px;
-        border-radius: 4px;
-        object-fit: cover;
-        border: 1px solid var(--faint);
-        background: rgba(255, 255, 255, 0.03);
-        transition: border-color var(--ease), box-shadow var(--ease);
-      }
-      .avatar:hover {
-        border-color: rgba(115, 177, 255, 0.35);
-        box-shadow: 0 0 0 1px rgba(115, 177, 255, 0.12);
+        display: block;
       }
 
       h1 {
@@ -120,7 +107,7 @@
 
       .sub {
         margin-top: 8px;
-        color: var(--muted);
+        color: var(--fg);
         font-size: 13px;
         font-style: normal;
         font-weight: 400;
@@ -204,11 +191,11 @@
         font-weight: 500;
         color: var(--proj-name);
         text-decoration: underline;
-        text-decoration-color: rgba(94, 234, 212, 0.45);
+        text-decoration-color: rgba(127, 245, 225, 0.55);
         text-underline-offset: 3px;
       }
       .proj-link:hover {
-        text-decoration-color: var(--proj-name);
+        text-decoration-color: var(--proj-name-hover);
         color: var(--proj-name-hover);
       }
       .proj-link:focus-visible {
@@ -308,14 +295,16 @@
         border-top: 1px solid rgba(255, 255, 255, 0.08);
         display: flex;
         gap: 18px;
-        color: var(--muted);
+        color: var(--fg);
         font-size: 13px;
       }
       footer a {
-        color: var(--muted);
+        color: var(--fg);
+        text-decoration: none;
       }
       footer a:hover {
-        color: var(--blue);
+        color: var(--fg);
+        opacity: 0.72;
         text-decoration: none;
       }
 
@@ -341,7 +330,6 @@
         </nav>
 
         <div id="home" class="hero">
-          <img class="avatar" src="eshan.jpg" alt="Portrait of Ishan Shrestha" />
           <div>
             <h1>Ishan Shrestha</h1>
             <div class="sub">based in US · comp sci @ University of Idaho · software engineer</div>
