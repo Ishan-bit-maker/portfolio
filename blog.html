@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blog — Eshan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="page">
-      <header class="page-header page-header--compact">
-        <div class="header-text">
-          <a href="index.html" class="back-link">← home</a>
-          <h1 class="title">blog</h1>
-          <p class="lede">Notes and thoughts on building, learning, and keeping things simple.</p>
-        </div>
-      </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Ishan Shrestha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-      <section class="section">
-        <div class="section-body">
-          <article class="blog-post">
-            <header class="blog-post-header">
-              <h2 class="blog-post-title"><a href="survival-log.html">a survival log</a></h2>
-              <time class="blog-post-date" datetime="2026-03-15">2026-03-15</time>
-            </header>
-            <div class="blog-post-body">
-              <p>
-                freshman -> sophomore -> junior
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
+  <!-- Cinematic Video Background -->
+  <div class="video-container">
+    <video autoplay loop muted playsinline id="bg-video">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-particles-in-a-dark-background-3000-large.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
 
-      <footer class="footer">
-        <span>built by eshan</span>
-        <span class="dot">•</span>
-        <span>last updated 2026</span>
-      </footer>
-    </main>
-  </body>
+  <!-- Glassmorphic Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">IS.</a>
+      <div class="nav-links">
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#projects" class="nav-link">Projects</a>
+        <a href="blog.html" class="nav-link" style="color: var(--text-main);">Writing</a>
+        <a href="index.html#aesthetic" class="nav-link">Aesthetic</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Header Section -->
+  <header class="hero" style="min-height: 40vh; align-items: flex-end; padding-bottom: 40px;">
+    <div class="container animate-on-scroll">
+      <h1 class="hero-title" style="font-size: 3.5rem;">
+        the <span class="gradient-text">Journal</span>
+      </h1>
+      <p class="hero-subtitle">Notes on software engineering, learning, and keeping things simple.</p>
+    </div>
+  </header>
+
+  <!-- Blog Articles Section -->
+  <section class="section">
+    <div class="container animate-on-scroll">
+      <div class="projects-grid">
+        
+        <!-- Survival Log -->
+        <a href="survival-log.html" class="project-card glass-panel group">
+          <div class="project-content">
+            <div class="project-meta">2026-03-15 &bull; Personal</div>
+            <h3 class="project-title group-hover:gradient-text">A Survival Log</h3>
+            <p class="project-desc">freshman -> sophomore -> junior</p>
+          </div>
+          <div class="project-arrow">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+
+        <!-- Original Article -->
+        <a href="#" class="project-card glass-panel group">
+          <div class="project-content">
+            <div class="project-meta">2026-02-10 &bull; Notes</div>
+            <h3 class="project-title group-hover:gradient-text">Keeping Things Small</h3>
+            <p class="project-desc">Sometimes the best code is the code you don't write. On choosing boring tech, ruthless deletion, and simple UIs.</p>
+          </div>
+          <div class="project-arrow">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
 </html>

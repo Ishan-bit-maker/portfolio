@@ -235,14 +235,13 @@ h1, h2, h3, .brand-logo {
 .terminal-header {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.1rem;
-  color: #a3a3a3;
+  color: #4ade80; /* Hacker green for the full command */
   margin-bottom: 20px;
   display: flex;
   align-items: center;
 }
 
 .term-prompt {
-  color: #4ade80; /* Hacker green */
   margin-right: 8px;
   font-weight: bold;
 }
@@ -251,7 +250,7 @@ h1, h2, h3, .brand-logo {
   display: inline-block;
   width: 10px;
   height: 1.2rem;
-  background-color: #a3a3a3;
+  background-color: #4ade80;
   margin-left: 5px;
   animation: blink 1s step-end infinite;
 }
@@ -269,7 +268,7 @@ h1, h2, h3, .brand-logo {
 }
 
 .img-wrapper {
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/5; /* Vertical photo aspect ratio */
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--surface-border);
