@@ -126,7 +126,22 @@ body::after {
   color: var(--text-main);
   text-align: center;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  /* slight overlay blend to make it pop with the ASCII behind */
+  /* "Italiani / titled" requested by user */
+  font-style: italic;
+  transform: rotate(-3deg);
+}
+
+/* 3D Canvas Background */
+#bg-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 /* Bottom Area */
