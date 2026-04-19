@@ -47,7 +47,7 @@ body {
 }
 
 .container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 5%;
 }
@@ -159,7 +159,7 @@ h1, h2, h3, .brand-logo {
 }
 
 .nav-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 5%;
   display: flex;
