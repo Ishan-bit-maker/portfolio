@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Ishan Shrestha — about." />
+    <title>About — Ishan Shrestha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0d0d0d;
+        --fg: rgba(245, 245, 245, 0.94);
+        --muted: rgba(245, 245, 245, 0.48);
+        --faint: rgba(245, 245, 245, 0.22);
+        --blue: #73b1ff;
+        --blue-dim: rgba(115, 177, 255, 0.85);
+        --green-date: #5c7e5c;
+        --sel-bg: rgba(115, 177, 255, 0.18);
+        --sel-fg: var(--fg);
+        --max: 720px;
+        --ease: 0.18s ease;
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      ::selection { background: var(--sel-bg); color: var(--sel-fg); }
+
+      a { color: var(--blue); text-decoration: none; transition: color var(--ease), opacity var(--ease); }
+      a:hover { color: var(--blue-dim); text-decoration: underline; text-underline-offset: 4px; }
+      a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+      a:visited { color: var(--blue); }
+
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 38px 18px 80px; }
+      header { margin-top: 8px; }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px 18px;
+        margin-bottom: 32px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 13px;
+      }
+      nav a { color: inherit; text-decoration: none; }
+      nav a:hover { color: #ffffff; text-decoration: none; opacity: 1; }
+
+      h1 { margin: 0; font-size: 1.15rem; font-weight: 600; color: var(--fg); }
+      .sub { margin-top: 8px; color: var(--muted); font-size: 13px; }
+
+      main { margin-top: 28px; }
+      .blk { margin-top: 18px; color: var(--muted); }
+      .blk strong { color: var(--fg); font-weight: 600; }
+
+      .meta {
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: grid;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .meta .k { color: rgba(255, 255, 255, 0.7); }
+
+      footer {
+        margin-top: 56px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        gap: 18px;
+        color: #ffffff;
+        font-size: 13px;
+      }
+      footer a, footer a:visited { color: #ffffff; text-decoration: none; }
+      footer a:hover { color: #ffffff; opacity: 0.72; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <nav aria-label="Primary">
+          <a href="index.html">home</a>
+          <a href="blog.html">blog</a>
+          <a href="dailies.html">dailies</a>
+          <a href="about-min.html">about</a>
+          <a href="resources.html">resources</a>
+        </nav>
+
+        <h1>about</h1>
+        <div class="sub">short version.</div>
+      </header>
+
+      <main>
+        <div class="blk">
+          Honestly? I don’t have it all figured out, but I like writing code that actually works and figuring out why things break.
+        </div>
+        <div class="blk">
+          I’m in the middle of my CS degree — keeping dependencies low and my learning rate high.
+        </div>
+
+        <div class="meta" aria-label="info">
+          <div><span class="k">major</span> · comp sci</div>
+          <div><span class="k">university</span> · University of Idaho</div>
+          <div><span class="k">location</span> · based in US</div>
+          <div><span class="k">email</span> · <a href="mailto:shresthaishan65@gmail.com">shresthaishan65@gmail.com</a></div>
+        </div>
+      </main>
+
+      <footer>
+        <a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a>
+        <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" rel="noopener noreferrer">linkedin</a>
+      </footer>
+    </div>
+  </body>
+</html>
+
