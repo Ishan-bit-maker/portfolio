@@ -78,13 +78,20 @@
         font-size: 13px;
       }
       nav a {
-        color: inherit;
+        color: var(--muted);
         text-decoration: none;
+        transition: color var(--ease);
+      }
+      nav a.active {
+        color: #ffffff;
       }
       nav a:hover {
         color: #ffffff;
         text-decoration: none;
         opacity: 1;
+      }
+      nav a:active {
+        color: var(--blue);
       }
 
       h1 {
@@ -234,7 +241,7 @@
       <header>
         <nav aria-label="Primary">
           <a href="index.html">home</a>
-          <a href="blog.html">blog</a>
+          <a href="blog.html" class="active">blog</a>
           <a href="dailies.html">dailies</a>
           <a href="about-min.html">about</a>
           <a href="resources.html">resources</a>
