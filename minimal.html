@@ -83,11 +83,15 @@
         font-size: 13px;
       }
       nav a {
-        color: inherit;
+        color: #888888;
         text-decoration: none;
+        transition: color var(--ease);
+      }
+      nav a[href="index.html"] {
+        color: #ffffff;
       }
       nav a:hover {
-        color: #ffffff;
+        color: var(--blue);
         text-decoration: none;
         opacity: 1;
       }

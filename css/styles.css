@@ -181,15 +181,28 @@ h1, h2, h3, .brand-logo {
 }
 
 .nav-link {
-  color: #ffffff;
+  color: #888888;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
   transition: var(--transition);
 }
 
-.nav-link:hover {
-  color: var(--text-main);
+.nav-link[href="index.html"],
+.pill-link[href="index.html"] {
+  color: #ffffff;
+}
+
+.nav-link:hover,
+.pill-link:hover {
+  color: #73b1ff;
+}
+
+.pill-link {
+  color: #888888;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
 }
 
 /* Sections */
