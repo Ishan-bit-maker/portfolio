@@ -181,7 +181,7 @@ h1, h2, h3, .brand-logo {
 }
 
 .nav-link {
-  color: var(--text-muted);
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
@@ -253,11 +253,13 @@ h1, h2, h3, .brand-logo {
 
 .term-cursor {
   display: inline-block;
-  width: 10px;
-  height: 1.2rem;
-  background-color: #4ade80;
   margin-left: 5px;
   animation: blink 1s step-end infinite;
+}
+
+.term-cursor::after {
+  content: "_";
+  color: #4ade80;
 }
 
 @keyframes blink {
@@ -526,6 +528,50 @@ h1, h2, h3, .brand-logo {
   
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* List structure for blog (matching dailies) */
+.list { 
+  display: grid; 
+  gap: 1.5rem; 
+  margin-top: 2rem; 
+}
+
+.row { 
+  display: grid; 
+  grid-template-columns: 120px 1fr; 
+  gap: 20px; 
+  align-items: baseline;
+}
+
+.date { 
+  color: var(--accent-green); 
+  font-family: var(--font-mono);
+  font-size: 0.9rem; 
+  opacity: 0.8;
+}
+
+.txt { 
+  color: var(--text-main); 
+  font-size: 1.1rem; 
+}
+
+.txt a {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.txt a:hover {
+  color: var(--accent-teal);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .row { 
+    grid-template-columns: 1fr; 
+    gap: 8px; 
   }
 }
 

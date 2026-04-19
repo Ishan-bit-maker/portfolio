@@ -50,7 +50,7 @@
         align-items: center;
         gap: 14px 18px;
         margin-bottom: 32px;
-        color: rgba(255, 255, 255, 0.85);
+        color: #ffffff;
         font-size: 13px;
       }
       nav a { color: inherit; text-decoration: none; }
@@ -74,17 +74,16 @@
       .prompt { color: var(--term-green); }
       .cursor {
         display: inline-block;
-        width: 8px;
-        height: 1.05em;
-        background: var(--term-green);
-        opacity: 0.65;
-        vertical-align: -0.1em;
         margin-left: 2px;
         animation: blink 1.1s step-end infinite;
       }
+      .cursor::after {
+        content: "_";
+        color: var(--term-green);
+      }
       @keyframes blink {
-        0%, 100% { opacity: 0.65; }
-        50% { opacity: 0.12; }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
       }
 
       .imgstrip {
