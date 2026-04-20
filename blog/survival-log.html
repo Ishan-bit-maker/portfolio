@@ -230,6 +230,15 @@
         opacity: 0.9;
       }
 
+      .top-right-icon {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        font-size: 20px;
+        user-select: none;
+        z-index: 100;
+      }
+
       @media (max-width: 600px) {
         .tl-item { grid-template-columns: 1fr; }
         .tl-period { border-right: none; border-bottom: 1px solid var(--faint); }
@@ -237,6 +246,7 @@
     </style>
   </head>
   <body>
+    <div class="top-right-icon">👾</div>
     <div class="wrap">
       <header>
         <nav aria-label="Primary">

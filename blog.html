@@ -163,12 +163,21 @@
         text-decoration: none;
       }
 
+      .top-right-icon {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        font-size: 20px;
+        user-select: none;
+      }
+
       @media (max-width: 600px) {
         .row { grid-template-columns: 1fr; gap: 6px; }
       }
     </style>
   </head>
   <body>
+    <div class="top-right-icon">👾</div>
     <div class="wrap">
       <header>
         <nav aria-label="Primary">
