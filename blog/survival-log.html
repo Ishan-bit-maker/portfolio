@@ -76,16 +76,17 @@
         flex-wrap: wrap;
         align-items: center;
         gap: 14px 18px;
-        padding: 38px 0 16px;
+        padding: 24px 0 20px;
         margin-top: -38px;
         margin-bottom: 24px;
         background: var(--bg);
-        background: linear-gradient(to bottom, var(--bg) 85%, transparent);
+        background: linear-gradient(to bottom, var(--bg) 80%, transparent);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         z-index: 100;
         color: #ffffff;
         font-size: 13px;
+        width: 100%;
       }
       nav a {
         color: var(--muted);
@@ -257,15 +258,15 @@
   </head>
   <body>
     <div class="wrap">
+      <nav aria-label="Primary">
+        <a href="../index.html">home</a>
+        <a href="../blog.html" class="active">blog</a>
+        <a href="../dailies.html">dailies</a>
+        <a href="../about-min.html">about</a>
+        <a href="../resources.html">resources</a>
+        <div class="top-right-icon">👾</div>
+      </nav>
       <header>
-        <nav aria-label="Primary">
-          <a href="../index.html">home</a>
-          <a href="../blog.html" class="active">blog</a>
-          <a href="../dailies.html">dailies</a>
-          <a href="../about-min.html">about</a>
-          <a href="../resources.html">resources</a>
-          <div class="top-right-icon">👾</div>
-        </nav>
 
         <h1>freshman → sophomore → junior.<br/>a survival log</h1>
         <p class="subtitle">not a guide. not advice. just what actually happened and what i wish i knew — from someone who's almost made it to the other side.</p>
