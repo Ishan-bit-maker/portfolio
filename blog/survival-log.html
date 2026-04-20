@@ -70,11 +70,20 @@
       header { margin-top: 8px; }
 
       nav {
+        position: sticky;
+        top: 0;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         gap: 14px 18px;
-        margin-bottom: 32px;
+        padding: 38px 0 16px;
+        margin-top: -38px;
+        margin-bottom: 24px;
+        background: var(--bg);
+        background: linear-gradient(to bottom, var(--bg) 85%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 100;
         color: #ffffff;
         font-size: 13px;
       }
@@ -234,7 +243,7 @@
       .top-right-icon {
         position: absolute;
         top: 38px;
-        right: 18px;
+        right: 0;
         font-size: 20px;
         user-select: none;
         z-index: 100;
@@ -248,7 +257,6 @@
   </head>
   <body>
     <div class="wrap">
-      <div class="top-right-icon">👾</div>
       <header>
         <nav aria-label="Primary">
           <a href="../index.html">home</a>
@@ -256,6 +264,7 @@
           <a href="../dailies.html">dailies</a>
           <a href="../about-min.html">about</a>
           <a href="../resources.html">resources</a>
+          <div class="top-right-icon">👾</div>
         </nav>
 
         <h1>freshman → sophomore → junior.<br/>a survival log</h1>

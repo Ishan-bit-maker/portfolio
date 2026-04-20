@@ -16,19 +16,28 @@
         max-width: 900px;
         margin: 0 auto;
       }
+      .top-bar {
+        position: sticky;
+        top: 0;
+        background: rgba(3, 3, 3, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 1000;
+        padding: 20px 0;
+        margin-bottom: 20px;
+      }
       .top-right-icon {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 20px;
+        right: 0;
         font-size: 20px;
         user-select: none;
-        z-index: 1000;
       }
     </style>
   </head>
   <body>
     <main class="page">
-      <div class="top-right-icon">👾</div>
+
       <nav class="top-bar">
         <div class="top-bar-links">
           <a href="mailto:shresthaishan65@gmail.com">email</a>
@@ -39,6 +48,7 @@
           <a href="https://www.linkedin.com/in/ishan-shrestha-365944280/">linkedin</a>
 
         </div>
+        <div class="top-right-icon">👾</div>
       </nav>
 
       <header class="page-header">
