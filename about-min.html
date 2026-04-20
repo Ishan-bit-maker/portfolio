@@ -41,7 +41,7 @@
       a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
       a:visited { color: var(--blue); }
 
-      .wrap { max-width: var(--max); margin: 0 auto; padding: 38px 18px 80px; }
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 38px 18px 80px; position: relative; }
       header { margin-top: 8px; }
 
       nav {
@@ -104,16 +104,16 @@
       footer a:hover { color: #ffffff; opacity: 0.72; }
       .top-right-icon {
         position: absolute;
-        top: 24px;
-        right: 24px;
+        top: 38px;
+        right: 18px;
         font-size: 20px;
         user-select: none;
       }
     </style>
   </head>
   <body>
-    <div class="top-right-icon">👾</div>
     <div class="wrap">
+      <div class="top-right-icon">👾</div>
       <header>
         <nav aria-label="Primary">
           <a href="index.html">home</a>
