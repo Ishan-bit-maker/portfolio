@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="unstructured time, slow builds, and why i started writing dailies again." />
+    <title>Summer Receipts — Ishan Shrestha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0d0d0d;
+        --fg: rgba(245, 245, 245, 0.94);
+        --muted: rgba(245, 245, 245, 0.48);
+        --faint: rgba(245, 245, 245, 0.22);
+        --blue: #73b1ff;
+        --blue-dim: rgba(115, 177, 255, 0.85);
+        --term-green: #4ade80;
+        --sel-bg: rgba(115, 177, 255, 0.18);
+        --sel-fg: var(--fg);
+        --max: 900px;
+        --ease: 0.18s ease;
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 14.5px;
+        line-height: 1.8;
+      }
+
+      ::selection { background: var(--sel-bg); color: var(--sel-fg); }
+
+      a {
+        color: var(--blue);
+        text-decoration: none;
+        transition: color var(--ease), opacity var(--ease);
+      }
+      a:hover {
+        color: var(--blue-dim);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      a:visited { color: var(--blue); }
+
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 38px 18px 80px;
+        position: relative;
+      }
+
+      header { margin-top: 8px; }
+
+      nav {
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px 18px;
+        padding: 24px 0 20px;
+        margin-top: -38px;
+        margin-bottom: 24px;
+        background: var(--bg);
+        background: linear-gradient(to bottom, var(--bg) 80%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 100;
+        color: #ffffff;
+        font-size: 13px;
+        width: 100%;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        transition: color var(--ease);
+      }
+      nav a.active { color: #ffffff; }
+      nav a:hover {
+        color: #ffffff;
+        text-decoration: none;
+        opacity: 1;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.4rem, 4vw, 1.75rem);
+        font-weight: 700;
+        font-style: italic;
+        letter-spacing: -0.02em;
+        color: var(--blue);
+        line-height: 1.3;
+      }
+
+      .meta {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .subtitle {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 13px;
+        font-style: italic;
+        border-left: 1px solid var(--blue);
+        padding-left: 16px;
+        margin-bottom: 40px;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        color: var(--fg);
+        opacity: 0.9;
+      }
+
+      ul {
+        margin: 0 0 1.5rem;
+        padding-left: 1.25rem;
+        color: var(--fg);
+        opacity: 0.9;
+      }
+      li { margin-bottom: 0.5rem; }
+
+      blockquote {
+        margin: 28px 0;
+        padding: 16px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 2px solid var(--term-green);
+        font-style: italic;
+        color: var(--muted);
+      }
+      blockquote p { margin: 0; }
+
+      .divider {
+        text-align: center;
+        color: var(--faint);
+        margin: 36px 0;
+        letter-spacing: 1em;
+      }
+
+      footer {
+        margin-top: 56px;
+        padding-top: 24px;
+        border-top: 1px solid var(--faint);
+        font-size: 12px;
+        color: var(--muted);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .top-right-icon {
+        position: absolute;
+        top: 38px;
+        right: 0;
+        font-size: 20px;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <nav aria-label="Primary">
+        <a href="../index.html">home</a>
+        <a href="../blog.html">blog</a>
+        <a href="../dailies.html" class="active">dailies</a>
+        <a href="../about-min.html">about</a>
+        <a href="../resources.html">resources</a>
+        <div class="top-right-icon">⚡</div>
+      </nav>
+      <header>
+        <h1>summer receipts</h1>
+        <div class="meta">2026-06-28 · daily note</div>
+        <p class="subtitle">unstructured time, slow builds, and why i started writing dailies again.</p>
+      </header>
+
+      <main>
+        <p>it's june. nothing is due. which sounds nice until you're three days into it and you've lost track of what day it is and whether you've eaten lunch or just thought about eating lunch.</p>
+
+        <p>summer break has this weird shape to it. during the semester, every hour has a label — lecture, lab, deadline, sleep (maybe). now the hours are just open. and open time is harder than it looks. you think you'll finally build all the things you've been saving for "when i have time." then you have time, and you spend a Tuesday reorganizing your desk and calling it progress.</p>
+
+        <p>i'm not saying that to be cynical. reorganizing your desk actually is progress sometimes. the point is that unstructured time doesn't feel like progress even when it is, and unstructured time where you genuinely do nothing feels worse than it should.</p>
+
+        <blockquote>
+          <p>dailies aren't a journal. they're a receipt crumpled in your pocket — proof the day happened.</p>
+        </blockquote>
+
+        <p>so: dailies. not a blog post every day. just a line or two — what shipped, what broke, what i learned before it evaporates.</p>
+
+        <p>this summer so far:</p>
+        <ul>
+          <li>touched the chess engine again (move gen is never really "done")</li>
+          <li>deleted a bunch of CSS on the homepage and felt lighter after</li>
+          <li>wrote this note instead of pretending i'll remember any of it in september</li>
+        </ul>
+
+        <p>junior year is one semester away. people keep asking if i have a plan. the honest answer is: sort of, in fragments, spread across notes i'll probably lose. dailies are me trying not to lose them.</p>
+
+        <div class="divider">* * *</div>
+
+        <p>if you're reading this in september: hope the desk is still organized. hope the engine has fewer bugs. hope i remembered to eat lunch.</p>
+      </main>
+
+      <footer>
+        <span><a href="../dailies.html">← back to dailies</a></span>
+        <span>not advice. just a receipt.</span>
+      </footer>
+    </div>
+  </body>
+</html>
