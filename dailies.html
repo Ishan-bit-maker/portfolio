@@ -3,169 +3,117 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Ishan Shrestha — dailies." />
-    <title>Dailies — Ishan Shrestha</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Ishan Shrestha — dailies. Small logs. No pressure. Just receipts." />
+    <title>dailies — ishan shrestha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #0d0d0d;
-        --fg: rgba(245, 245, 245, 0.94);
-        --muted: rgba(245, 245, 245, 0.48);
-        --faint: rgba(245, 245, 245, 0.22);
-        --blue: #73b1ff;
-        --blue-dim: rgba(115, 177, 255, 0.85);
-        --green-date: #5c7e5c;
-        --sel-bg: rgba(115, 177, 255, 0.18);
-        --sel-fg: var(--fg);
-        --max: 900px;
-        --ease: 0.18s ease;
-      }
-
-      * { box-sizing: border-box; }
-      html { -webkit-text-size-adjust: 100%; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--fg);
-        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 15px;
-        line-height: 1.75;
-      }
-      ::selection { background: var(--sel-bg); color: var(--sel-fg); }
-
-      a { color: var(--blue); text-decoration: none; transition: color var(--ease), opacity var(--ease); }
-      a:hover { color: var(--blue-dim); text-decoration: underline; text-underline-offset: 4px; }
-      a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
-      a:visited { color: var(--blue); }
-
-      .wrap { max-width: var(--max); margin: 0 auto; padding: 38px 18px 80px; position: relative; }
-      header { margin-top: 8px; }
-
-      nav {
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px 18px;
-        padding: 24px 0 20px;
-        margin-top: -38px;
-        margin-bottom: 24px;
-        background: var(--bg);
-        background: linear-gradient(to bottom, var(--bg) 80%, transparent);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 100;
-        color: #ffffff;
-        font-size: 13px;
-        width: 100%;
-      }
-      nav a {
-        color: #888888;
-        text-decoration: none;
-        transition: color var(--ease);
-      }
-      nav a.active {
-        color: #888888;
-      }
-      nav a[href="index.html"] {
-        color: #ffffff;
-      }
-      nav a:hover {
-        color: var(--blue);
-        text-decoration: none;
-        opacity: 1;
-      }
-      nav a:active {
-        color: var(--blue);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 1.15rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        color: var(--fg);
-      }
-      .sub { margin-top: 8px; color: var(--muted); font-size: 13px; }
-
-      main { margin-top: 28px; }
-
-      .list { display: grid; gap: 1.25rem; margin-top: 18px; }
-      .row { display: grid; grid-template-columns: 110px 1fr; gap: 16px; }
-      .date { color: var(--green-date); font-size: 13px; }
-      .txt { color: var(--muted); font-size: 14px; }
-
-      footer {
-        margin-top: 56px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex;
-        gap: 18px;
-        color: #ffffff;
-        font-size: 13px;
-      }
-      footer a, footer a:visited { color: #ffffff; text-decoration: none; }
-      footer a:hover { color: #ffffff; opacity: 0.72; }
-
-      .top-right-icon {
-        position: absolute;
-        top: 38px;
-        right: 0;
-        font-size: 20px;
-        user-select: none;
-      }
-
-      @media (max-width: 520px) {
-        .row { grid-template-columns: 92px 1fr; }
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="wrap">
-      <nav aria-label="Primary">
+      <nav class="top-nav" aria-label="Primary">
         <a href="index.html">home</a>
+        <a href="index.html#work">work</a>
+        <a href="index.html#projects">projects</a>
         <a href="blog.html">blog</a>
         <a href="dailies.html" class="active">dailies</a>
         <a href="about-min.html">about</a>
         <a href="resources.html">resources</a>
-        <div class="top-right-icon">👾</div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
+          <span class="invader-icon" title="👾">👾</span>
+        </div>
       </nav>
-      <header>
 
-        <h1>dailies</h1>
-        <div class="sub">small logs. no pressure. just receipts.</div>
+      <header class="page-header">
+        <div class="kicker">03 / LOGS / DAILY RECEIPTS</div>
+        <h1 class="page-title">dailies</h1>
+        <div class="hero-subtitle">small logs. no pressure. just receipts.</div>
       </header>
 
+      <hr class="divider" />
+
       <main>
-        <div class="list" aria-label="daily entries">
-          <div class="row">
-            <div class="date">2026-06-28</div>
-            <div class="txt">wrote <a href="blog/summer-receipts.html">summer receipts</a> — a note on unstructured time and keeping dailies.</div>
+        <section class="content-section" aria-labelledby="h-dailies">
+          <div class="section-head">
+            <h2 id="h-dailies" class="section-title">
+              <span class="section-num">01</span> log entries
+            </h2>
           </div>
-          <div class="row">
-            <div class="date">2026-04-18</div>
-            <div class="txt">shipped a minimalist homepage; deleted a lot of CSS.</div>
+
+          <div class="items-list">
+            <div class="item-row">
+              <div class="item-num">26.04</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">
+                    wrote <a href="blog/summer-receipts.html">summer receipts</a>
+                  </div>
+                  <span class="item-meta">2026-06-28</span>
+                </div>
+                <div class="item-desc">
+                  a note on unstructured time, slow builds, and keeping dailies.
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">26.03</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">shipped a minimalist homepage</div>
+                  <span class="item-meta">2026-04-18</span>
+                </div>
+                <div class="item-desc">
+                  deleted a lot of CSS, streamlined structure, and focused on pure content.
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">26.02</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">
+                    published <a href="blog/survival-log.html">survival log</a> draft
+                  </div>
+                  <span class="item-meta">2026-03-15</span>
+                </div>
+                <div class="item-desc">
+                  longform draft on navigating the sophomore-to-junior transition.
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">26.01</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">keeping things small</div>
+                  <span class="item-meta">2026-02-10</span>
+                </div>
+                <div class="item-desc">
+                  wrote a note about constrained scope, simple functions, and minimal code.
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="row">
-            <div class="date">2026-03-15</div>
-            <div class="txt">published <a href="blog/survival-log.html">survival log</a> draft.</div>
-          </div>
-          <div class="row">
-            <div class="date">2026-02-10</div>
-            <div class="txt">wrote a note about keeping things small.</div>
-          </div>
-        </div>
+        </section>
       </main>
 
-      <footer>
-        <a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a>
-        <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" rel="noopener noreferrer">linkedin</a>
+      <footer class="page-footer">
+        <div class="footer-links">
+          <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="mailto:shresthaishan65@gmail.com">email</a>
+        </div>
+        <div class="footer-meta">
+          <span>&copy; 2026 ishan shrestha</span>
+        </div>
       </footer>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
-

@@ -3,148 +3,329 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Ishan Shrestha — resources." />
-    <title>Resources — Ishan Shrestha</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Ishan Shrestha — resources. Papers, books, talks, mostly CS." />
+    <title>resources — ishan shrestha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #0d0d0d;
-        --fg: rgba(245, 245, 245, 0.94);
-        --muted: rgba(245, 245, 245, 0.48);
-        --faint: rgba(245, 245, 245, 0.22);
-        --blue: #73b1ff;
-        --blue-dim: rgba(115, 177, 255, 0.85);
-        --term-green: #4ade80;
-        --sel-bg: rgba(115, 177, 255, 0.18);
-        --sel-fg: var(--fg);
-        --max: 900px;
-        --ease: 0.18s ease;
-      }
-
-      * { box-sizing: border-box; }
-      html { -webkit-text-size-adjust: 100%; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--fg);
-        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 15px;
-        line-height: 1.75;
-      }
-      ::selection { background: var(--sel-bg); color: var(--sel-fg); }
-
-      a { color: var(--blue); text-decoration: none; transition: color var(--ease), opacity var(--ease); }
-      a:hover { color: var(--blue-dim); text-decoration: underline; text-underline-offset: 4px; }
-      a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
-      a:visited { color: var(--blue); }
-
-      .wrap { max-width: var(--max); margin: 0 auto; padding: 38px 18px 80px; position: relative; }
-      header { margin-top: 8px; }
-
-      nav {
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px 18px;
-        padding: 24px 0 20px;
-        margin-top: -38px;
-        margin-bottom: 24px;
-        background: var(--bg);
-        background: linear-gradient(to bottom, var(--bg) 80%, transparent);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 100;
-        color: #ffffff;
-        font-size: 13px;
-        width: 100%;
-      }
-      nav a {
-        color: #888888;
-        text-decoration: none;
-        transition: color var(--ease);
-      }
-      nav a.active {
-        color: #888888;
-      }
-      nav a[href="index.html"] {
-        color: #ffffff;
-      }
-      nav a:hover {
-        color: var(--blue);
-        text-decoration: none;
-        opacity: 1;
-      }
-      nav a:active {
-        color: var(--blue);
-      }
-
-      h1 { margin: 0; font-size: 1.15rem; font-weight: 600; color: var(--fg); }
-      .sub { margin-top: 8px; color: var(--muted); font-size: 13px; }
-
-      main { margin-top: 28px; }
-
-      .list { display: grid; gap: 14px; margin-top: 18px; }
-      .item { color: var(--muted); }
-      .item a { font-weight: 500; }
-
-      .top-right-icon {
-        position: absolute;
-        top: 38px;
-        right: 0;
-        font-size: 20px;
-        user-select: none;
-      }
-
-      footer {
-        margin-top: 56px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex;
-        gap: 18px;
-        color: #ffffff;
-        font-size: 13px;
-      }
-      footer a, footer a:visited { color: #ffffff; text-decoration: none; }
-      footer a:hover { color: #ffffff; opacity: 0.72; }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="wrap">
-      <nav aria-label="Primary">
+      <nav class="top-nav" aria-label="Primary">
         <a href="index.html">home</a>
+        <a href="index.html#work">work</a>
+        <a href="index.html#projects">projects</a>
         <a href="blog.html">blog</a>
         <a href="dailies.html">dailies</a>
         <a href="about-min.html">about</a>
         <a href="resources.html" class="active">resources</a>
-        <div class="top-right-icon">👾</div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
+          <span class="invader-icon" title="👾">👾</span>
+        </div>
       </nav>
-      <header>
 
-        <h1>resources</h1>
-        <div class="sub">links i actually use.</div>
+      <header class="page-header">
+        <div class="kicker">16 / ARCHIVE / 209 ITEMS</div>
+        <h1 class="page-title">resources</h1>
+        <div class="hero-subtitle">stuff i've saved over time. papers, books, talks, mostly cs.</div>
       </header>
 
-      <main>
-        <div class="list" aria-label="resource links">
-          <div class="item"><a href="blog.html">writing</a> — notes on software, learning, keeping things simple</div>
-          <div class="item"><a href="blog/survival-log.html">a survival log</a> — longform personal log</div>
-          <div class="item"><a href="about.html">old about page</a> — previous design (still here)</div>
-          <div class="item"><a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a> — code</div>
-          <div class="item"><a href="https://www.linkedin.com/in/ishan-shrestha-365944280" rel="noopener noreferrer">linkedin</a> — profile</div>
-        </div>
+      <hr class="divider" />
 
+      <main>
+        <div class="archive-layout">
+          <!-- Left Sidebar -->
+          <aside class="archive-sidebar" aria-label="Archive filters">
+            <div class="sidebar-block">
+              <div class="sidebar-label">SEARCH</div>
+              <div class="search-input-wrap">
+                <input
+                  type="text"
+                  id="archive-search"
+                  class="search-input"
+                  placeholder="title, author or topic"
+                  autocomplete="off"
+                  aria-label="Search resources"
+                />
+              </div>
+            </div>
+
+            <div class="sidebar-block">
+              <div class="filter-tags-grid" role="group" aria-label="Filter by media type">
+                <button type="button" class="filter-tag-btn active" data-filter="all">
+                  <span class="dot-marker">▪</span> ALL
+                </button>
+                <button type="button" class="filter-tag-btn" data-filter="paper">
+                  <span class="dot-marker">▫</span> PAPERS
+                </button>
+                <button type="button" class="filter-tag-btn" data-filter="book">
+                  <span class="dot-marker">▫</span> BOOKS
+                </button>
+                <button type="button" class="filter-tag-btn" data-filter="course">
+                  <span class="dot-marker">▫</span> COURSES
+                </button>
+                <button type="button" class="filter-tag-btn" data-filter="article">
+                  <span class="dot-marker">▫</span> ARTICLES
+                </button>
+                <button type="button" class="filter-tag-btn" data-filter="project">
+                  <span class="dot-marker">▫</span> SITES
+                </button>
+              </div>
+            </div>
+
+            <div class="sidebar-block">
+              <div class="category-nav-list" role="navigation" aria-label="Category navigation">
+                <div class="cat-nav-item active" data-category="all">
+                  <div class="cat-nav-left">
+                    <span class="cat-nav-num">--</span>
+                    <span>all categories</span>
+                  </div>
+                  <span class="cat-nav-count">10</span>
+                </div>
+                <div class="cat-nav-item" data-category="os">
+                  <div class="cat-nav-left">
+                    <span class="cat-nav-num">01</span>
+                    <span>operating systems</span>
+                  </div>
+                  <span class="cat-nav-count">3</span>
+                </div>
+                <div class="cat-nav-item" data-category="arch">
+                  <div class="cat-nav-left">
+                    <span class="cat-nav-num">02</span>
+                    <span>computer architecture</span>
+                  </div>
+                  <span class="cat-nav-count">2</span>
+                </div>
+                <div class="cat-nav-item" data-category="algo">
+                  <div class="cat-nav-left">
+                    <span class="cat-nav-num">03</span>
+                    <span>algorithms &amp; systems</span>
+                  </div>
+                  <span class="cat-nav-count">2</span>
+                </div>
+                <div class="cat-nav-item" data-category="writing">
+                  <div class="cat-nav-left">
+                    <span class="cat-nav-num">04</span>
+                    <span>writing &amp; personal logs</span>
+                  </div>
+                  <span class="cat-nav-count">3</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right Content Area -->
+          <div class="archive-content">
+            <!-- 01 Operating Systems -->
+            <div class="archive-group" data-cat-group="os">
+              <div class="archive-group-head">
+                <span class="archive-group-num">01</span>
+                <h2 class="archive-group-title">operating systems</h2>
+              </div>
+              <div class="items-list">
+                <div class="resource-entry" data-tag="book" data-cat="os">
+                  <div class="resource-num">01.01</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" rel="noopener noreferrer">
+                        operating systems: three easy pieces
+                      </a>
+                    </div>
+                    <div class="resource-desc">
+                      remzi &amp; andrea arpaci-dusseau. the best free intro to virtualization, concurrency and persistence.
+                    </div>
+                  </div>
+                  <div class="resource-tag">BOOK</div>
+                </div>
+
+                <div class="resource-entry" data-tag="paper" data-cat="os">
+                  <div class="resource-num">01.02</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="https://dl.acm.org/doi/10.1145/361011.361061" target="_blank" rel="noopener noreferrer">
+                        the unix time-sharing system
+                      </a>
+                    </div>
+                    <div class="resource-desc">
+                      ritchie &amp; thompson. the paper that started it all.
+                    </div>
+                  </div>
+                  <div class="resource-tag">PAPER</div>
+                </div>
+
+                <div class="resource-entry" data-tag="course" data-cat="os">
+                  <div class="resource-num">01.03</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="https://pdos.csail.mit.edu/6.1810/" target="_blank" rel="noopener noreferrer">
+                        mit 6.1810: operating system engineering
+                      </a>
+                    </div>
+                    <div class="resource-desc">
+                      mit pdos. labs on xv6, a small unix for risc-v.
+                    </div>
+                  </div>
+                  <div class="resource-tag">COURSE</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 02 Computer Architecture -->
+            <div class="archive-group" data-cat-group="arch">
+              <div class="archive-group-head">
+                <span class="archive-group-num">02</span>
+                <h2 class="archive-group-title">computer architecture</h2>
+              </div>
+              <div class="items-list">
+                <div class="resource-entry" data-tag="book" data-cat="arch">
+                  <div class="resource-num">02.01</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="https://dataintensive.net/" target="_blank" rel="noopener noreferrer">
+                        designing data-intensive applications
+                      </a>
+                    </div>
+                    <div class="resource-desc">
+                      martin kleppmann. the definitive guide to reliable, scalable, and maintainable systems.
+                    </div>
+                  </div>
+                  <div class="resource-tag">BOOK</div>
+                </div>
+
+                <div class="resource-entry" data-tag="book" data-cat="arch">
+                  <div class="resource-num">02.02</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="http://csapp.cs.cmu.edu/" target="_blank" rel="noopener noreferrer">
+                        computer systems: a programmer's perspective (cs:app)
+                      </a>
+                    </div>
+                    <div class="resource-desc">
+                      randal bryant &amp; david o'hallaron. hardware architecture, compilers, and system execution.
+                    </div>
+                  </div>
+                  <div class="resource-tag">BOOK</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 03 Algorithms & Systems -->
+            <div class="archive-group" data-cat-group="algo">
+              <div class="archive-group-head">
+                <span class="archive-group-num">03</span>
+                <h2 class="archive-group-title">algorithms &amp; systems</h2>
+              </div>
+              <div class="items-list">
+                <div class="resource-entry" data-tag="project" data-cat="algo">
+                  <div class="resource-num">03.01</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="https://ishan-bit-maker.github.io/Chess-wasm-engine/" target="_blank" rel="noopener noreferrer">
+                        chess engine in webassembly
+                      </a>
+                    </div>
+                    <div class="resource-desc">
+                      bitboard representation, minimax search, and alpha-beta pruning compiled to wasm.
+                    </div>
+                  </div>
+                  <div class="resource-tag">PROJECT</div>
+                </div>
+
+                <div class="resource-entry" data-tag="project" data-cat="algo">
+                  <div class="resource-num">03.02</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="https://ishan-bit-maker.github.io/maze/" target="_blank" rel="noopener noreferrer">
+                        maze pathfinding benchmarks
+                      </a>
+                    </div>
+                    <div class="resource-desc">
+                      interactive benchmarks comparing bfs, dfs, and a* across varying graph densities.
+                    </div>
+                  </div>
+                  <div class="resource-tag">PROJECT</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 04 Writing & Personal Logs -->
+            <div class="archive-group" data-cat-group="writing">
+              <div class="archive-group-head">
+                <span class="archive-group-num">04</span>
+                <h2 class="archive-group-title">writing &amp; personal logs</h2>
+              </div>
+              <div class="items-list">
+                <div class="resource-entry" data-tag="article" data-cat="writing">
+                  <div class="resource-num">04.01</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="blog/summer-receipts.html">summer receipts</a>
+                    </div>
+                    <div class="resource-desc">
+                      notes on unstructured time, slow builds, and why i started writing dailies again.
+                    </div>
+                  </div>
+                  <div class="resource-tag">POST</div>
+                </div>
+
+                <div class="resource-entry" data-tag="article" data-cat="writing">
+                  <div class="resource-num">04.02</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="blog/survival-log.html">a survival log</a>
+                    </div>
+                    <div class="resource-desc">
+                      freshman &rarr; sophomore &rarr; junior: lessons learned navigating the CS degree.
+                    </div>
+                  </div>
+                  <div class="resource-tag">POST</div>
+                </div>
+
+                <div class="resource-entry" data-tag="article" data-cat="writing">
+                  <div class="resource-num">04.03</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="blog.html">keeping things small</a>
+                    </div>
+                    <div class="resource-desc">
+                      notes on software architecture, keeping dependencies low, and modular simplicity.
+                    </div>
+                  </div>
+                  <div class="resource-tag">POST</div>
+                </div>
+
+                <div class="resource-entry" data-tag="article" data-cat="writing">
+                  <div class="resource-num">04.04</div>
+                  <div class="resource-info">
+                    <div class="resource-title">
+                      <a href="about.html">about page archive</a>
+                    </div>
+                    <div class="resource-desc">
+                      extended background, personal interests, and contact directory.
+                    </div>
+                  </div>
+                  <div class="resource-tag">ARCHIVE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
 
-      <footer>
-        <a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a>
-        <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" rel="noopener noreferrer">linkedin</a>
+      <footer class="page-footer">
+        <div class="footer-links">
+          <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="mailto:shresthaishan65@gmail.com">email</a>
+        </div>
+        <div class="footer-meta">
+          <span>&copy; 2026 ishan shrestha</span>
+        </div>
       </footer>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>
-

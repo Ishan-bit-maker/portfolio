@@ -3,486 +3,220 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="description" content="Ishan Shrestha — software engineer. High-performance apps, interactive web, scalable systems." />
     <title>Ishan Shrestha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #0c0d11;
-        --fg: rgba(245, 245, 245, 0.94);
-        --muted: rgba(245, 245, 245, 0.48);
-        --faint: rgba(245, 245, 245, 0.22);
-        --blue: #73b1ff;
-        --blue-dim: rgba(115, 177, 255, 0.85);
-        --green-date: #5c7e5c;
-        --term-green: #4ade80;
-        --proj-name: #7ff5e1;
-        --proj-name-hover: #f0fffc;
-        --wip: #c9a06c;
-        --sel-bg: rgba(115, 177, 255, 0.18);
-        --sel-fg: var(--fg);
-        --max: 900px;
-        --ease: 0.18s ease;
-      }
-
-      * { box-sizing: border-box; }
-      html { -webkit-text-size-adjust: 100%; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--fg);
-        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 15px;
-        line-height: 1.75;
-      }
-
-      ::selection {
-        background: var(--sel-bg);
-        color: var(--sel-fg);
-      }
-
-      a {
-        color: var(--blue);
-        text-decoration: none;
-        transition: color var(--ease), opacity var(--ease);
-      }
-      a:hover {
-        color: var(--blue-dim);
-        text-decoration: underline;
-        text-underline-offset: 4px;
-      }
-      a:focus-visible {
-        outline: 2px solid var(--blue);
-        outline-offset: 3px;
-        border-radius: 4px;
-      }
-      a:visited { color: var(--blue); }
-      a.proj-link,
-      a.proj-link:visited {
-        color: var(--proj-name);
-      }
-
-      .wrap {
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 38px 18px 80px;
-        position: relative;
-      }
-
-      header { margin-top: 8px; }
-
-      nav {
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px 18px;
-        padding: 24px 0 20px;
-        margin-top: -38px;
-        margin-bottom: 24px;
-        background: var(--bg);
-        background: linear-gradient(to bottom, var(--bg) 80%, transparent);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 100;
-        color: #ffffff;
-        font-size: 13px;
-        width: 100%;
-      }
-      nav a {
-        color: #888888;
-        text-decoration: none;
-        transition: color var(--ease);
-      }
-      nav a.active {
-        color: #888888;
-      }
-      nav a[href="index.html"] {
-        color: #ffffff;
-      }
-      nav a:hover {
-        color: var(--blue);
-        text-decoration: none;
-        opacity: 1;
-      }
-      nav a:active {
-        color: var(--blue);
-      }
-
-      .top-right-icon {
-        position: absolute;
-        top: 38px;
-        right: 0;
-        font-size: 20px;
-        user-select: none;
-      }
-
-      .hero {
-        display: block;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(1.5rem, 4vw, 1.85rem);
-        font-weight: 700;
-        font-style: italic;
-        letter-spacing: -0.02em;
-        color: var(--blue);
-        -webkit-mask-image: repeating-linear-gradient(to bottom, black 0, black 2px, rgba(0,0,0,0.75) 2px, rgba(0,0,0,0.75) 3px);
-        mask-image: repeating-linear-gradient(to bottom, black 0, black 2px, rgba(0,0,0,0.75) 2px, rgba(0,0,0,0.75) 3px);
-      }
-
-      .sub {
-        margin-top: 8px;
-        color: var(--fg);
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 400;
-      }
-
-      .blurb {
-        margin: 12px 0 0;
-        color: var(--muted);
-        font-size: 14px;
-      }
-
-      .now {
-        margin: 14px 0 0;
-        color: var(--muted);
-        font-size: 13px;
-      }
-      .now em {
-        font-style: normal;
-        color: var(--blue);
-      }
-      .now a {
-        font-weight: 500;
-      }
-
-      main { margin-top: 48px; }
-      section { margin-top: 48px; }
-
-      .h2 {
-        margin: 0 0 16px;
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--blue);
-        letter-spacing: 0.02em;
-      }
-
-      .split-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-        column-gap: min(5.5rem, 12vw);
-        align-items: start;
-      }
-
-      .list {
-        display: grid;
-        gap: 22px;
-      }
-
-      .work-block {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .work-name {
-        font-weight: 600;
-        color: var(--fg);
-        font-size: 14px;
-      }
-      .work-desc {
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.65;
-      }
-      .work-dates {
-        margin-top: 6px;
-        font-size: 13px;
-        color: var(--green-date);
-      }
-
-      .proj-row {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .proj-titleline {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 8px;
-      }
-      .proj-link {
-        font-weight: 500;
-        color: var(--proj-name);
-        text-decoration: underline;
-        text-decoration-color: rgba(127, 245, 225, 0.55);
-        text-underline-offset: 3px;
-      }
-      .proj-link:hover {
-        text-decoration-color: var(--proj-name-hover);
-        color: var(--proj-name-hover);
-      }
-      .proj-link:focus-visible {
-        outline-color: var(--proj-name);
-      }
-      .tag {
-        display: inline-block;
-        padding: 1px 7px;
-        border-radius: 4px;
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--wip);
-        background: rgba(201, 160, 108, 0.1);
-        border: 1px solid rgba(201, 160, 108, 0.28);
-        line-height: 1.5;
-      }
-
-      .proj-desc {
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.65;
-      }
-
-      .row {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 18px;
-        align-items: baseline;
-      }
-
-      .muted { color: var(--muted); }
-      .faint { color: var(--faint); }
-
-      #blog .list {
-        gap: 1.75rem;
-      }
-
-      .post-line {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        gap: 14px;
-      }
-      .post-date {
-        color: var(--muted);
-        font-size: 13px;
-        text-align: right;
-      }
-
-      #blog .list a,
-      #blog .list a:visited {
-        color: #ffffff;
-        text-decoration: none;
-      }
-      #blog .list a:hover {
-        color: var(--blue);
-        text-decoration: none;
-      }
-      #blog .list a:focus-visible {
-        outline-color: var(--blue);
-      }
-
-      .termline {
-        margin: 18px 0 10px;
-        color: var(--term-green);
-        font-size: 13px;
-        white-space: nowrap;
-      }
-      .prompt { color: var(--term-green); }
-      .cursor {
-        display: inline-block;
-        margin-left: 2px;
-        animation: blink 1.1s step-end infinite;
-      }
-      .cursor::after {
-        content: "_";
-        color: var(--term-green);
-      }
-      @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-      }
-
-      .imgstrip {
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 132px;
-        gap: 10px;
-        overflow-x: auto;
-        padding: 8px 0 4px;
-        scrollbar-width: thin;
-      }
-      .imgstrip::-webkit-scrollbar { height: 8px; }
-      .imgstrip::-webkit-scrollbar-thumb { background: rgba(115, 177, 255, 0.2); }
-      .imgstrip::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.04); }
-
-      .imgstrip img {
-        width: 132px;
-        height: 168px;
-        object-fit: cover;
-        border-radius: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.02);
-        transition: border-color var(--ease), transform var(--ease);
-        -webkit-mask-image: repeating-linear-gradient(to bottom, black 0, black 2px, rgba(0,0,0,0.7) 2px, rgba(0,0,0,0.7) 3px);
-        mask-image: repeating-linear-gradient(to bottom, black 0, black 2px, rgba(0,0,0,0.7) 2px, rgba(0,0,0,0.7) 3px);
-      }
-      .imgstrip img:hover {
-        border-color: rgba(115, 177, 255, 0.35);
-        transform: translateY(-2px);
-      }
-
-      footer {
-        margin-top: 56px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex;
-        gap: 18px;
-        color: #ffffff;
-        font-size: 13px;
-      }
-      footer a,
-      footer a:visited {
-        color: #ffffff;
-        text-decoration: none;
-      }
-      footer a:hover {
-        color: #ffffff;
-        opacity: 0.72;
-        text-decoration: none;
-      }
-
-
-
-      @media (max-width: 640px) {
-        .split-grid {
-          grid-template-columns: 1fr;
-          gap: 40px;
-        }
-        .row { grid-template-columns: 1fr; gap: 6px; }
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="wrap">
-      <nav aria-label="Primary">
+      <nav class="top-nav" aria-label="Primary">
         <a href="index.html" class="active">home</a>
+        <a href="#work">work</a>
+        <a href="#projects">projects</a>
         <a href="blog.html">blog</a>
         <a href="dailies.html">dailies</a>
         <a href="about-min.html">about</a>
         <a href="resources.html">resources</a>
-        <div class="top-right-icon">👾</div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
+          <span class="invader-icon" title="👾">👾</span>
+        </div>
       </nav>
-      <header>
 
-        <div id="home" class="hero">
-          <div>
-            <h1>Ishan Shrestha</h1>
-            <div class="sub"> Junior · comp sci @ University of Idaho · aspiring SWE </div>
-            <p class="blurb">I build fast software and like learning how things break.</p>
-            <p class="blurb">Mostly shipping side projects: algorithms, systems.</p> 
-            <p class="now">currently: <em>available for opportunities</em> inbox open: <a href="mailto:shresthaishan65@gmail.com">shresthaishan65@gmail.com</a></p>
+      <header class="page-header">
+        <div class="kicker">01 / PORTFOLIO / JUNIOR CS @ UNIVERSITY OF IDAHO</div>
+        <h1 class="page-title">ishan shrestha</h1>
+        <div class="hero-subtitle">Junior · comp sci @ University of Idaho · aspiring SWE</div>
+        <div class="hero-blurb">
+          <p>I build fast software and like learning how things break.</p>
+          <p>Mostly shipping side projects: algorithms, systems.</p>
+        </div>
+        <div class="status-pill-line">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>available for opportunities</span>
           </div>
+          <span>inbox open: <a href="mailto:shresthaishan65@gmail.com" class="contact-email-link">shresthaishan65@gmail.com</a></span>
         </div>
       </header>
 
+      <hr class="divider" />
+
       <main>
-        <section class="split-grid" aria-label="Work and projects">
-          <div id="work">
-            <h2 class="h2">work</h2>
-            <div class="list">
-              <div class="work-block">
-                <div class="work-name">University of Idaho</div>
-                <div class="work-desc">Technical Support representative</div>
-                <div class="work-dates">(Aug 2026 - present)</div>
+        <!-- Work & Projects Split Grid -->
+        <div class="split-grid">
+          <!-- Work Section -->
+          <section id="work" class="content-section" aria-labelledby="h-work">
+            <div class="section-head">
+              <h2 id="h-work" class="section-title">
+                <span class="section-num">01</span> work
+              </h2>
+            </div>
+            <div class="items-list">
+              <div class="item-row">
+                <div class="item-num">01.01</div>
+                <div class="item-main">
+                  <div class="item-header">
+                    <div class="item-title">University of Idaho</div>
+                    <span class="item-meta">(Aug 2026 - present)</span>
+                  </div>
+                  <div class="item-desc">Technical Support representative</div>
+                </div>
               </div>
-              <div class="work-block">
-                <div class="work-name">personal &amp; side projects</div>
-                <div class="work-desc">full stack · systems · algorithms</div>
-                <div class="work-dates">(ongoing)</div>
+
+              <div class="item-row">
+                <div class="item-num">01.02</div>
+                <div class="item-main">
+                  <div class="item-header">
+                    <div class="item-title">personal &amp; side projects</div>
+                    <span class="item-meta">(ongoing)</span>
+                  </div>
+                  <div class="item-desc">full stack · systems · algorithms</div>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          <div id="projects">
-            <h2 class="h2">projects</h2>
-            <div class="list">
-              <div class="proj-row">
-                <div class="proj-titleline">
-                  <a class="proj-link" href="https://ishan-bit-maker.github.io/Chess-wasm-engine/" rel="noopener noreferrer">Chess Engine</a>
-                  <span class="tag">wip</span> 
+          <!-- Projects Section -->
+          <section id="projects" class="content-section" aria-labelledby="h-projects">
+            <div class="section-head">
+              <h2 id="h-projects" class="section-title">
+                <span class="section-num">02</span> projects
+              </h2>
+            </div>
+            <div class="items-list">
+              <div class="item-row">
+                <div class="item-num">02.01</div>
+                <div class="item-main">
+                  <div class="item-header">
+                    <div class="item-title">
+                      <a href="https://ishan-bit-maker.github.io/Chess-wasm-engine/" target="_blank" rel="noopener noreferrer">
+                        Chess Engine
+                        <span class="item-arrow">&nearr;</span>
+                      </a>
+                    </div>
+                    <span class="tag-pill">wip</span>
+                  </div>
+                  <div class="item-desc">
+                    a chess engine compiled to webassembly. minimax, alpha-beta, and a bitboard representation that actually works. has a UI to watch the engine think.
+                  </div>
                 </div>
-                <div class="proj-desc">a chess engine compiled to webassembly. minimax, alpha-beta, and a bitboard representation that actually works. has a UI to watch the engine think.</div>
               </div>
 
-              <div class="proj-row">
-                <div class="proj-titleline">
-                  <a class="proj-link" href="https://ishan-bit-maker.github.io/maze/" rel="noopener noreferrer">Maze Pathfinding</a>
-                  
+              <div class="item-row">
+                <div class="item-num">02.02</div>
+                <div class="item-main">
+                  <div class="item-header">
+                    <div class="item-title">
+                      <a href="https://ishan-bit-maker.github.io/maze/" target="_blank" rel="noopener noreferrer">
+                        Maze Pathfinding
+                        <span class="item-arrow">&nearr;</span>
+                      </a>
+                    </div>
+                    <span class="tag-pill">demo</span>
+                  </div>
+                  <div class="item-desc">
+                    a maze solver that benchmarks bfs, dfs, and a* across different densities. because reading about complexity is one thing, but measuring it is better.
+                  </div>
                 </div>
-                <div class="proj-desc">a maze solver that benchmarks bfs, dfs, and a* across different densities. because reading about complexity is one thing, but measuring it is better.</div>
               </div>
 
-              <div class="proj-row">
-                <div class="proj-titleline">
-                  <a class="proj-link" href="#" rel="noopener noreferrer">DiffPal</a> 
-                  <span class="tag">wip</span>  
+              <div class="item-row">
+                <div class="item-num">02.03</div>
+                <div class="item-main">
+                  <div class="item-header">
+                    <div class="item-title">
+                      <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer">
+                        DiffPal
+                        <span class="item-arrow">&nearr;</span>
+                      </a>
+                    </div>
+                    <span class="tag-pill">wip</span>
+                  </div>
+                  <div class="item-desc">
+                    turning git diffs and PRs into documentation automatically. basically a pipeline to save me from writing docs manually.
+                  </div>
                 </div>
-                <div class="proj-desc">turning git diffs and PRs into documentation automatically. basically a pipeline to save me from writing docs manually.</div>
-              </div>
-              
-              <div style="margin-top: 4px;">
-                <a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer" style="font-weight: 500;">more projects &rarr;</a>
               </div>
             </div>
-          </div>
-        </section>
+            <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer" class="more-link">
+              more projects on github &rarr;
+            </a>
+          </section>
+        </div>
 
-        <section id="blog" aria-labelledby="h-posts">
-          <h2 id="h-posts" class="h2">recent posts</h2>
-          <div class="list">
-            <div class="post-line">
-              <div><a href="blog/summer-receipts.html">Summer Receipts</a></div>
+        <!-- Recent Posts Section -->
+        <section id="blog" class="content-section" aria-labelledby="h-posts">
+          <div class="section-head">
+            <h2 id="h-posts" class="section-title">
+              <span class="section-num">03</span> recent posts
+            </h2>
+          </div>
+          <div class="items-list">
+            <div class="post-row">
+              <div class="item-num">03.01</div>
+              <div class="post-title">
+                <a href="blog/summer-receipts.html">Summer Receipts</a>
+              </div>
               <div class="post-date">2026-06-28</div>
             </div>
-            <div class="post-line">
-              <div><a href="blog/survival-log.html">A Survival Log</a></div>
+
+            <div class="post-row">
+              <div class="item-num">03.02</div>
+              <div class="post-title">
+                <a href="blog/survival-log.html">A Survival Log</a>
+              </div>
               <div class="post-date">2026-03-15</div>
             </div>
-            <div class="post-line">
-              <div><a href="blog.html">Keeping Things Small</a></div>
+
+            <div class="post-row">
+              <div class="item-num">03.03</div>
+              <div class="post-title">
+                <a href="blog.html">Keeping Things Small</a>
+              </div>
               <div class="post-date">2026-02-10</div>
             </div>
           </div>
         </section>
 
-        <section id="aesthetic" aria-label="Aesthetic strip">
-          <div class="termline">
+        <!-- Aesthetic Strip Section -->
+        <section id="aesthetic" class="content-section" aria-label="Aesthetic strip">
+          <div class="section-head">
+            <h2 class="section-title">
+              <span class="section-num">04</span> aesthetic
+            </h2>
+          </div>
+          <div class="aesthetic-termline">
             <span class="prompt">$</span> cat /dev/aesthetic <span class="cursor" aria-hidden="true"></span>
           </div>
-          <div class="imgstrip" aria-label="aesthetic images">
-            <img src="img/img1.jpg" alt="" loading="lazy" />
-            <img src="img/img2.jpg" alt="" loading="lazy" />
-            <img src="img/img3.jpg" alt="" loading="lazy" />
-            <img src="img/img4.jpg" alt="" loading="lazy" />
-            <img src="img/img5.jpg" alt="" loading="lazy" />
-            <img src="img/img8.jpg" alt="" loading="lazy" />
+          <div class="imgstrip-container" aria-label="aesthetic images gallery">
+            <div class="imgstrip">
+              <img src="img/img1.jpg" alt="Aesthetic capture 1" loading="lazy" />
+              <img src="img/img2.jpg" alt="Aesthetic capture 2" loading="lazy" />
+              <img src="img/img3.jpg" alt="Aesthetic capture 3" loading="lazy" />
+              <img src="img/img4.jpg" alt="Aesthetic capture 4" loading="lazy" />
+              <img src="img/img5.jpg" alt="Aesthetic capture 5" loading="lazy" />
+              <img src="img/img8.jpg" alt="Aesthetic capture 8" loading="lazy" />
+            </div>
           </div>
         </section>
       </main>
 
-      <footer>
-        <a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a>
-        <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" rel="noopener noreferrer">linkedin</a>
+      <footer class="page-footer">
+        <div class="footer-links">
+          <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="mailto:shresthaishan65@gmail.com">email</a>
+        </div>
+        <div class="footer-meta">
+          <span>&copy; 2026 ishan shrestha</span>
+        </div>
       </footer>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -3,239 +3,115 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="description" content="Ishan Shrestha — the journal." />
-    <title>Blog — Ishan Shrestha</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Ishan Shrestha — the journal. Notes on software engineering, learning, and keeping things simple." />
+    <title>blog — ishan shrestha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #0d0d0d;
-        --fg: rgba(245, 245, 245, 0.94);
-        --muted: rgba(245, 245, 245, 0.48);
-        --faint: rgba(245, 245, 245, 0.22);
-        --blue: #73b1ff;
-        --blue-dim: rgba(115, 177, 255, 0.85);
-        --green-date: #5c7e5c;
-        --term-green: #4ade80;
-        --proj-name: #7ff5e1;
-        --proj-name-hover: #f0fffc;
-        --wip: #c9a06c;
-        --sel-bg: rgba(115, 177, 255, 0.18);
-        --sel-fg: var(--fg);
-        --max: 900px;
-        --ease: 0.18s ease;
-      }
-
-      * { box-sizing: border-box; }
-      html { -webkit-text-size-adjust: 100%; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--fg);
-        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 15px;
-        line-height: 1.75;
-      }
-
-      ::selection {
-        background: var(--sel-bg);
-        color: var(--sel-fg);
-      }
-
-      a {
-        color: var(--blue);
-        text-decoration: none;
-        transition: color var(--ease), opacity var(--ease);
-      }
-      a:hover {
-        color: var(--blue-dim);
-        text-decoration: underline;
-        text-underline-offset: 4px;
-      }
-      a:focus-visible {
-        outline: 2px solid var(--blue);
-        outline-offset: 3px;
-        border-radius: 4px;
-      }
-      a:visited { color: var(--blue); }
-
-      .wrap {
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 38px 18px 80px;
-        position: relative;
-      }
-
-      header { margin-top: 8px; }
-
-      nav {
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px 18px;
-        padding: 24px 0 20px;
-        margin-top: -38px;
-        margin-bottom: 24px;
-        background: var(--bg);
-        background: linear-gradient(to bottom, var(--bg) 80%, transparent);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 100;
-        color: #ffffff;
-        font-size: 13px;
-        width: 100%;
-      }
-      nav a {
-        color: #888888;
-        text-decoration: none;
-        transition: color var(--ease);
-      }
-      nav a.active {
-        color: #888888;
-      }
-      nav a[href="index.html"] {
-        color: #ffffff;
-      }
-      nav a:hover {
-        color: var(--blue);
-        text-decoration: none;
-        opacity: 1;
-      }
-      nav a:active {
-        color: var(--blue);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(1.5rem, 4vw, 1.85rem);
-        font-weight: 700;
-        font-style: italic;
-        letter-spacing: -0.02em;
-        color: var(--blue);
-      }
-
-      .sub {
-        margin-top: 8px;
-        color: var(--fg);
-        font-size: 13px;
-        font-style: normal;
-        font-weight: 400;
-      }
-
-      main { margin-top: 48px; }
-
-      .list {
-        display: grid;
-        gap: 1.75rem;
-      }
-
-      .row {
-        display: grid;
-        grid-template-columns: 110px 1fr;
-        gap: 16px;
-      }
-
-      .date {
-        color: var(--green-date);
-        font-size: 13px;
-        opacity: 0.9;
-      }
-
-      .txt a {
-        color: #ffffff !important;
-        font-weight: 500;
-      }
-      .txt a:hover {
-        opacity: 0.75;
-        text-decoration: none;
-      }
-
-      footer {
-        margin-top: 56px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex;
-        gap: 18px;
-        color: #ffffff;
-        font-size: 13px;
-      }
-      footer a,
-      footer a:visited {
-        color: #ffffff;
-        text-decoration: none;
-      }
-      footer a:hover {
-        color: #ffffff;
-        opacity: 0.72;
-        text-decoration: none;
-      }
-
-      .top-right-icon {
-        position: absolute;
-        top: 38px;
-        right: 0;
-        font-size: 20px;
-        user-select: none;
-      }
-
-      @media (max-width: 600px) {
-        .row { grid-template-columns: 1fr; gap: 6px; }
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="wrap">
-      <nav aria-label="Primary">
+      <nav class="top-nav" aria-label="Primary">
         <a href="index.html">home</a>
+        <a href="index.html#work">work</a>
+        <a href="index.html#projects">projects</a>
         <a href="blog.html" class="active">blog</a>
         <a href="dailies.html">dailies</a>
         <a href="about-min.html">about</a>
         <a href="resources.html">resources</a>
-        <div class="top-right-icon">👾</div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
+          <span class="invader-icon" title="👾">👾</span>
+        </div>
       </nav>
-      <header>
 
-        <h1>the journal</h1>
-        <div class="sub">notes on software engineering, learning, and keeping things simple.</div>
+      <header class="page-header">
+        <div class="kicker">02 / THE JOURNAL / NOTES &amp; ESSAYS</div>
+        <h1 class="page-title">the journal</h1>
+        <div class="hero-subtitle">notes on software engineering, learning, and keeping things simple.</div>
       </header>
 
+      <hr class="divider" />
+
       <main>
-        <div class="list">
-          <div class="row">
-            <div class="date">2026-06-28</div>
-            <div class="txt">
-              <a href="blog/summer-receipts.html">Summer Receipts</a>
-              <div style="margin-top: 4px; color: var(--muted); font-size: 13px; line-height: 1.6;">
-                A short daily note on summer break, slow builds, and writing things down before they evaporate.
+        <section class="content-section" aria-labelledby="h-essays">
+          <div class="section-head">
+            <h2 id="h-essays" class="section-title">
+              <span class="section-num">01</span> articles
+            </h2>
+          </div>
+
+          <div class="items-list">
+            <div class="item-row">
+              <div class="item-num">01.01</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">
+                    <a href="blog/summer-receipts.html">
+                      Summer Receipts
+                      <span class="item-arrow">&nearr;</span>
+                    </a>
+                  </div>
+                  <span class="item-meta">2026-06-28</span>
+                </div>
+                <div class="item-desc">
+                  A short daily note on summer break, slow builds, and writing things down before they evaporate.
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">01.02</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">
+                    <a href="blog/survival-log.html">
+                      A Survival Log
+                      <span class="item-arrow">&nearr;</span>
+                    </a>
+                  </div>
+                  <span class="item-meta">2026-03-15</span>
+                </div>
+                <div class="item-desc">
+                  Freshman &rarr; sophomore &rarr; junior: thoughts, shifts, and lessons learned while working through computer science.
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">01.03</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">
+                    <a href="#">
+                      Keeping Things Small
+                      <span class="item-arrow">&nearr;</span>
+                    </a>
+                  </div>
+                  <span class="item-meta">2026-02-10</span>
+                </div>
+                <div class="item-desc">
+                  Exploring the philosophy of minimalism in software architecture. Why smaller modules, simpler functions, and constrained scopes lead to better, more maintainable codebases.
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="date">2026-03-15</div>
-            <div class="txt"><a href="blog/survival-log.html">A Survival Log</a></div>
-          </div>
-
-          <div class="row">
-            <div class="date">2026-02-10</div>
-            <div class="txt">
-              <a href="#">Keeping Things Small</a>
-              <div style="margin-top: 4px; color: var(--muted); font-size: 13px; line-height: 1.6;">
-                Exploring the philosophy of minimalism in software architecture. Why smaller modules, simpler functions, and constrained scopes lead to better, more maintainable codebases.
-              </div>
-            </div>
-          </div>
-        </div>
+        </section>
       </main>
 
-      <footer>
-        <a href="https://github.com/Ishan-bit-maker" rel="noopener noreferrer">github</a>
-        <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" rel="noopener noreferrer">linkedin</a>
+      <footer class="page-footer">
+        <div class="footer-links">
+          <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="mailto:shresthaishan65@gmail.com">email</a>
+        </div>
+        <div class="footer-meta">
+          <span>&copy; 2026 ishan shrestha</span>
+        </div>
       </footer>
     </div>
+
+    <script src="js/script.js"></script>
   </body>
 </html>

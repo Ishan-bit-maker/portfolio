@@ -3,304 +3,59 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="description" content="freshman → sophomore → junior: a survival log" />
     <title>Survival Log — Ishan Shrestha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #0d0d0d;
-        --fg: rgba(245, 245, 245, 0.94);
-        --muted: rgba(245, 245, 245, 0.48);
-        --faint: rgba(245, 245, 245, 0.22);
-        --blue: #73b1ff;
-        --blue-dim: rgba(115, 177, 255, 0.85);
-        --green-date: #5c7e5c;
-        --term-green: #4ade80;
-        --wip: #c9a06c;
-        --red: #ff6b6b;
-        --sel-bg: rgba(115, 177, 255, 0.18);
-        --sel-fg: var(--fg);
-        --max: 900px;
-        --ease: 0.18s ease;
-      }
-
-      * { box-sizing: border-box; }
-      html { -webkit-text-size-adjust: 100%; }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--fg);
-        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        font-size: 14.5px;
-        line-height: 1.8;
-      }
-
-      ::selection {
-        background: var(--sel-bg);
-        color: var(--sel-fg);
-      }
-
-      a {
-        color: var(--blue);
-        text-decoration: none;
-        transition: color var(--ease), opacity var(--ease);
-      }
-      a:hover {
-        color: var(--blue-dim);
-        text-decoration: underline;
-        text-underline-offset: 4px;
-      }
-      a:focus-visible {
-        outline: 2px solid var(--blue);
-        outline-offset: 3px;
-        border-radius: 4px;
-      }
-      a:visited { color: var(--blue); }
-
-      .wrap {
-        max-width: var(--max);
-        margin: 0 auto;
-        padding: 38px 18px 80px;
-        position: relative;
-      }
-
-      header { margin-top: 8px; }
-
-      nav {
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px 18px;
-        padding: 24px 0 20px;
-        margin-top: -38px;
-        margin-bottom: 24px;
-        background: var(--bg);
-        background: linear-gradient(to bottom, var(--bg) 80%, transparent);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 100;
-        color: #ffffff;
-        font-size: 13px;
-        width: 100%;
-      }
-      nav a {
-        color: var(--muted);
-        text-decoration: none;
-        transition: color var(--ease);
-      }
-      nav a.active {
-        color: #ffffff;
-      }
-      nav a:hover {
-        color: #ffffff;
-        text-decoration: none;
-        opacity: 1;
-      }
-      nav a:active {
-        color: var(--blue);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(1.4rem, 4vw, 1.75rem);
-        font-weight: 700;
-        font-style: italic;
-        letter-spacing: -0.02em;
-        color: var(--blue);
-        line-height: 1.3;
-      }
-
-      .subtitle {
-        margin-top: 12px;
-        color: var(--muted);
-        font-size: 13px;
-        font-style: italic;
-        border-left: 1px solid var(--blue);
-        padding-left: 16px;
-        margin-bottom: 48px;
-      }
-
-      h2 {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--fg);
-        margin: 48px 0 16px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      h2 .yr-tag {
-        font-size: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        padding: 2px 6px;
-        border-radius: 4px;
-        font-weight: 400;
-        border: 1px solid currentColor;
-        opacity: 0.8;
-      }
-      .tag-1 { color: var(--term-green); }
-      .tag-2 { color: var(--wip); }
-      .tag-3 { color: var(--blue); }
-
-      p {
-        margin-bottom: 1.5rem;
-        color: var(--fg);
-        opacity: 0.9;
-      }
-
-      blockquote {
-        margin: 32px 0;
-        padding: 16px 20px;
-        background: rgba(255, 255, 255, 0.03);
-        border-left: 2px solid var(--blue);
-        font-style: italic;
-        color: var(--muted);
-      }
-      blockquote p { margin: 0; }
-
-      .callout {
-        border: 1px solid var(--faint);
-        border-radius: 4px;
-        padding: 20px;
-        margin: 32px 0;
-        background: rgba(255, 255, 255, 0.02);
-      }
-      .callout.green { border-left: 2px solid var(--term-green); }
-      .callout.orange { border-left: 2px solid var(--wip); }
-      .callout.red { border-left: 2px solid var(--red); }
-      
-      .callout-label {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        font-weight: 600;
-        margin-bottom: 8px;
-        display: block;
-      }
-      .callout.green .callout-label { color: var(--term-green); }
-      .callout.orange .callout-label { color: var(--wip); }
-      .callout.red .callout-label { color: var(--red); }
-
-      .timeline {
-        margin: 32px 0;
-        border: 1px solid var(--faint);
-        border-radius: 4px;
-        overflow: hidden;
-      }
-      .tl-item {
-        display: grid;
-        grid-template-columns: 100px 1fr;
-        border-bottom: 1px solid var(--faint);
-      }
-      .tl-item:last-child { border-bottom: none; }
-      .tl-period {
-        padding: 12px 16px;
-        background: rgba(255, 255, 255, 0.03);
-        font-size: 11px;
-        text-transform: uppercase;
-        color: var(--muted);
-        border-right: 1px solid var(--faint);
-        display: flex;
-        align-items: center;
-      }
-      .tl-content {
-        padding: 12px 16px;
-        font-size: 13px;
-        color: var(--fg);
-      }
-
-      .divider {
-        text-align: center;
-        color: var(--faint);
-        margin: 40px 0;
-        letter-spacing: 1em;
-      }
-
-      footer {
-        margin-top: 64px;
-        padding-top: 24px;
-        border-top: 1px solid var(--faint);
-        font-size: 12px;
-        color: var(--muted);
-        display: flex;
-        justify-content: space-between;
-      }
-
-      img.blog-image {
-        max-width: 100%;
-        height: auto;
-        border-radius: 4px;
-        margin: 32px 0;
-        border: 1px solid var(--faint);
-        opacity: 0.9;
-      }
-
-      .top-right-icon {
-        position: absolute;
-        top: 38px;
-        right: 0;
-        font-size: 20px;
-        user-select: none;
-        z-index: 100;
-      }
-
-      @media (max-width: 600px) {
-        .tl-item { grid-template-columns: 1fr; }
-        .tl-period { border-right: none; border-bottom: 1px solid var(--faint); }
-      }
-    </style>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <div class="wrap">
-      <nav aria-label="Primary">
+    <div class="wrap" style="max-width: 760px;">
+      <nav class="top-nav" aria-label="Primary">
         <a href="../index.html">home</a>
+        <a href="../index.html#work">work</a>
+        <a href="../index.html#projects">projects</a>
         <a href="../blog.html" class="active">blog</a>
         <a href="../dailies.html">dailies</a>
         <a href="../about-min.html">about</a>
         <a href="../resources.html">resources</a>
-        <div class="top-right-icon">👾</div>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
+          <span class="invader-icon" title="👾">👾</span>
+        </div>
       </nav>
-      <header>
 
-        <h1>freshman → sophomore → junior.<br/>a survival log</h1>
-        <p class="subtitle">not a guide. not advice. just what actually happened and what i wish i knew — from someone who's almost made it to the other side.</p>
+      <header class="article-header">
+        <div class="kicker">ESSAY / 2026-03-15</div>
+        <h1 class="page-title">a survival log</h1>
+        <div class="article-meta">freshman &rarr; sophomore &rarr; junior &middot; 2026-03-15</div>
+        <p class="article-subtitle">things i wish someone had told me, things i had to learn the hard way, and things i'm still figuring out.</p>
       </header>
 
-      <main>
-        <div class="divider">* * *</div>
+      <hr class="divider" />
 
+      <main class="prose">
         <!-- YEAR 1 -->
         <h2>year one <span class="yr-tag tag-1">freshman</span></h2>
 
-        <p>you show up. you have a backpack that's a little too new. you've color-coded your schedule. you have a water bottle. you are <em>ready</em>.</p>
+        <p>freshman year is mostly just noise. everyone is performing. everyone is pretending they know what a semester is like, how college works, how to study for an exam that covers three chapters you haven't read yet. nobody knows.</p>
 
-        <p>week three, the color-coded schedule is in a drawer somewhere and you're eating cereal at 11pm trying to figure out if you can skip a lecture you've already skipped twice. the gap between "who you thought you were going to be in college" and "who you actually are in college" hits fast. and it hits quietly, which is the worst kind.</p>
-
-        <blockquote>
-          <p>freshman year is the only time in your life you'll genuinely believe that going to bed at midnight is "staying up late." cherish it.</p>
-        </blockquote>
-
-        <p>the social stuff is weird too. everyone's performing a version of themselves that's like 30% more confident than the real one, including you. everyone's pretending they have it figured out. no one has it figured out. this is fine. this is actually the most normal thing that will ever happen to you.</p>
+        <p>the biggest shock isn't the difficulty &mdash; it's the lack of structure. in high school, someone tells you where to be every 50 minutes. in college, you have three hours between classes and nobody cares if you go to the library or take a four-hour nap in the student union. the nap feels like a good idea until about week 7.</p>
 
         <div class="callout green">
           <span class="callout-label">what actually mattered</span>
-          <p>showing up to things even when you didn't feel like it. not the lectures — those matter too — but the random events, the small conversations, the people you met while doing nothing in particular. that's the actual education.</p>
+          <p>showing up to things even when you didn't feel like it. not the lectures &mdash; those matter too &mdash; but the random events, the small conversations, the people you met while doing nothing in particular. that's the actual education.</p>
         </div>
 
-        <p>academically: you will bomb at least one exam you thought you'd ace. you will ace at least one you thought you'bomb. the lesson here is that your gut is not a reliable predictor of performance, which is terrifying, but also kind of liberating once you accept it.</p>
+        <p>academically: you will bomb at least one exam you thought you'd ace. you will ace at least one you thought you'd bomb. the lesson here is that your gut is not a reliable predictor of performance, which is terrifying, but also kind of liberating once you accept it.</p>
 
-        <div class="divider">* * *</div>
+        <div class="article-divider">* * *</div>
 
         <!-- YEAR 2 -->
         <h2>year two <span class="yr-tag tag-2">sophomore</span></h2>
 
-        <p>the sophomore slump is real. nobody warns you about it properly. they mention it like it's a minor inconvenience — a little dip, a bit of a blah period. it is not that. it is a full identity crisis disguised as a semester.</p>
+        <p>the sophomore slump is real. nobody warns you about it properly. they mention it like it's a minor inconvenience &mdash; a little dip, a bit of a blah period. it is not that. it is a full identity crisis disguised as a semester.</p>
 
         <p>freshman year had the energy of novelty. everything was new, everything was a first. sophomore year is when the novelty runs out and you're left with just... the reality of it. the routine. the realization that you chose a major and now you have to actually study it for three more years. the first time you think "wait, what am i even doing here?"</p>
 
@@ -313,11 +68,11 @@
           <p>this is also the year everyone's LinkedIn starts looking terrifying. internships, research positions, clubs they're "leading." you are eating instant noodles and rewatching a show for the third time. both can be true at the same time and both are valid. try to remember that.</p>
         </div>
 
-        <p>but here's what sophomore year actually teaches you — and it does teach you, just slowly and painfully: you learn what you actually like versus what you thought you were supposed to like. you figure out which friendships are real. you start to have a more honest relationship with your own limits. that's not nothing. that's actually kind of everything.</p>
+        <p>but here's what sophomore year actually teaches you &mdash; and it does teach you, just slowly and painfully: you learn what you actually like versus what you thought you were supposed to like. you figure out which friendships are real. you start to have a more honest relationship with your own limits. that's not nothing. that's actually kind of everything.</p>
 
         <div class="timeline">
           <div class="tl-item">
-            <div class="tl-period">sept – oct</div>
+            <div class="tl-period">sept &ndash; oct</div>
             <div class="tl-content"><strong>false confidence.</strong> you've done this before. you know how college works now. famous last words.</div>
           </div>
           <div class="tl-item">
@@ -325,7 +80,7 @@
             <div class="tl-content"><strong>the wall.</strong> midterms, burnout, existential questions at 2am. the classic combo.</div>
           </div>
           <div class="tl-item">
-            <div class="tl-period">jan – feb</div>
+            <div class="tl-period">jan &ndash; feb</div>
             <div class="tl-content"><strong>the pivot.</strong> you start actually trying different things. less performing, more just doing.</div>
           </div>
           <div class="tl-item">
@@ -334,7 +89,7 @@
           </div>
         </div>
 
-        <div class="divider">* * *</div>
+        <div class="article-divider">* * *</div>
 
         <!-- YEAR 3 -->
         <h2>year three <span class="yr-tag tag-3">junior (next semester)</span></h2>
@@ -354,24 +109,31 @@
 
         <p>what i'm actually going in with: lower expectations for how put-together i'll feel, higher expectations for what i can get done. two years of this taught me that the feeling of readiness never really comes. you just go anyway. that's the whole trick.</p>
 
-        <p>and yeah, part of me is nervous. but a bigger part is just — curious. which i think is the right energy to bring to a year that's going to be different no matter what.</p>
+        <p>and yeah, part of me is nervous. but a bigger part is just &mdash; curious. which i think is the right energy to bring to a year that's going to be different no matter what.</p>
 
-        <div class="divider">* * *</div>
+        <div class="article-divider">* * *</div>
 
         <!-- CLOSING -->
         <h2>so what's the actual takeaway</h2>
 
         <p>honestly? i don't know if there's a clean one. i came in thinking college was a system you could figure out if you were smart enough or organized enough. it's not. it's more like a thing that happens to you while you're busy trying to figure it out.</p>
 
-        <p>freshman year teaches you that confidence and competence are not the same thing. sophomore year teaches you that comfort and growth are not the same thing. and junior year — i'll report back, but i'm guessing it teaches you that planning and doing are not the same thing.</p>
+        <p>freshman year teaches you that confidence and competence are not the same thing. sophomore year teaches you that comfort and growth are not the same thing. and junior year &mdash; i'll report back, but i'm guessing it teaches you that planning and doing are not the same thing.</p>
 
         <p>the common thread: the thing you think is the thing usually isn't the thing. the real stuff sneaks in sideways. keep showing up anyway.</p>
       </main>
 
-      <footer>
-        <span>dev.log — personal opinions only</span>
-        <span>not a guide. just a log.</span>
+      <footer class="page-footer">
+        <div class="footer-links">
+          <a href="../blog.html">&larr; back to all posts</a>
+          <a href="../dailies.html">dailies</a>
+        </div>
+        <div class="footer-meta">
+          <span>not a guide. just a log.</span>
+        </div>
       </footer>
     </div>
+
+    <script src="../js/script.js"></script>
   </body>
 </html>

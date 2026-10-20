@@ -1,132 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ishan Shrestha — about</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Ishan Shrestha — extended about." />
+    <title>about — ishan shrestha</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="css/styles.css" />
-    <style>
-      .page {
-        position: relative;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      .top-bar {
-        position: sticky;
-        top: 0;
-        background: rgba(3, 3, 3, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        z-index: 1000;
-        padding: 20px 0;
-        margin-bottom: 20px;
-      }
-      .top-right-icon {
-        position: absolute;
-        top: 20px;
-        right: 0;
-        font-size: 20px;
-        user-select: none;
-      }
-    </style>
   </head>
   <body>
-    <main class="page">
-
-      <nav class="top-bar">
-        <div class="top-bar-links">
-          <a href="mailto:shresthaishan65@gmail.com">email</a>
-        
-          <span class="top-bar-sep">·</span>
-          <a href="https://github.com/Ishan-bit-maker">github</a>
-          <span class="top-bar-sep">·</span>
-          <a href="https://www.linkedin.com/in/ishan-shrestha-365944280/">linkedin</a>
-
+    <div class="wrap">
+      <nav class="top-nav" aria-label="Primary">
+        <a href="index.html">home</a>
+        <a href="index.html#work">work</a>
+        <a href="index.html#projects">projects</a>
+        <a href="blog.html">blog</a>
+        <a href="dailies.html">dailies</a>
+        <a href="about.html" class="active">about</a>
+        <a href="resources.html">resources</a>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
+          <span class="invader-icon" title="👾">👾</span>
         </div>
-        <div class="top-right-icon">👾</div>
       </nav>
 
       <header class="page-header">
-        <div class="avatar">
-          <img src="img/eshan.jpg" alt="Portrait of Ishan" />
-        </div>
-        <div class="header-text">
-          <div class="eyebrow">hey, i'm </div>
-          <h1 class="title">Ishan Shrestha.</h1>
-          <div class="links-row">
-            <a href="index.html" class="pill-link">home</a>
-            <a href="blog.html" class="pill-link">blog</a>
-            <a href="about.html" class="pill-link active">about</a>
-          </div>
-        </div>
+        <div class="kicker">04 / ABOUT / EXTENDED PROFILE</div>
+        <h1 class="page-title">ishan shrestha</h1>
+        <div class="hero-subtitle">junior &middot; computer science student &middot; aspiring software engineer</div>
       </header>
 
-      <section class="section">
-        <h2 class="section-title">info</h2>
-        <div class="section-body">
-          <div class="info-grid">
-            <div class="info-card">
-              <span class="info-label">Major</span>
-              <span class="info-val">Comp Sci</span>
+      <hr class="divider" />
+
+      <main>
+        <section class="content-section">
+          <div class="prose">
+            <h2>bio</h2>
+            <p>
+              Honestly? I don't have it all figured out, but I like writing code that actually works and figuring out why things break.
+            </p>
+            <p>
+              I'm navigating the middle of my CS degree, which means half my time is spent on theory and the other half is spent shipping side projects just to see what sticks. My favorite kind of software is fast, simple, and doesn't try to be too smart. I'm just trying to keep my dependencies low and my learning rate high.
+            </p>
+            <p>
+              Currently, I'm working through Martin Kleppmann's <em>Designing Data-Intensive Applications</em> to learn how systems scale without falling apart.
+            </p>
+          </div>
+
+          <div class="meta-grid" aria-label="Quick Facts">
+            <div class="meta-row">
+              <span class="meta-label">Major</span>
+              <span class="meta-val">comp sci</span>
             </div>
-            <div class="info-card">
-              <span class="info-label">University</span>
-              <span class="info-val">University of Idaho</span>
+            <div class="meta-row">
+              <span class="meta-label">University</span>
+              <span class="meta-val">University of Idaho</span>
             </div>
-           
-            <div class="info-card">
-              <span class="info-label">Caffeine</span>
-              <span class="info-val">Mostly Monster</span>
+            <div class="meta-row">
+              <span class="meta-label">Caffeine</span>
+              <span class="meta-val">mostly Monster</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Email</span>
+              <span class="meta-val">
+                <a href="mailto:shresthaishan65@gmail.com" class="contact-email-link">shresthaishan65@gmail.com</a>
+              </span>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <section class="section">
-        <h2 class="section-title">bio</h2>
-        <div class="section-body">
-          <article class="item">
-            <div class="item-main">
-              <p class="item-copy">
-                Honestly? I don't have it all figured out, but I like writing code that actually works and figuring out why things break. 
-              </p>
-              <p class="item-copy">
-                I'm navigating the middle of my CS degree, which means half my time is spent on theory and the other half is spent shipping side projects just to see what sticks. My favorite kind of software is fast, simple, and doesn't try to be too smart. I’m just trying to keep my dependencies low and my learning rate high.
-              </p>
-              <p class="item-copy">
-                Currently, I'm working through Martin Kleppmann's <em>Designing Data-Intensive Applications</em> to learn how systems scale without falling apart.
-              </p>
-            </div>
-          </article>
+      <footer class="page-footer">
+        <div class="footer-links">
+          <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer">github</a>
+          <a href="https://www.linkedin.com/in/ishan-shrestha-365944280" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <a href="mailto:shresthaishan65@gmail.com">email</a>
         </div>
-      </section>
-
-      <section class="section">
-        <h2 class="section-title">contact</h2>
-        <div class="section-body">
-          <article class="item">
-            <div class="item-main">
-              <p class="item-copy">
-                email: <a href="mailto:shresthaishan65@gmail.com" style="color: inherit;">shresthaishan65@gmail.com</a>
-              </p>
-            </div>
-          </article>
+        <div class="footer-meta">
+          <span>&copy; 2026 ishan shrestha</span>
         </div>
-      </section>
-
-      <footer class="footer">
-        <span>built by eshan</span>
-        <span class="dot">•</span>
-        <span>last updated 2026</span>
       </footer>
-    </main>
+    </div>
 
     <script src="js/script.js"></script>
   </body>
 </html>
-
