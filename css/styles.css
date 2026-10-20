@@ -242,6 +242,16 @@ h1.page-title {
   background: #22c55e;
   box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
   display: inline-block;
+  animation: pulseDot 2.6s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.05);
+  }
 }
 
 .contact-email-link {
