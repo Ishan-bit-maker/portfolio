@@ -16,13 +16,14 @@
         <a href="index.html" class="active">home</a>
         <a href="#work">work</a>
         <a href="#projects">projects</a>
+        <a href="#posts">posts</a>
+        <a href="#toolkit">toolkit</a>
         <a href="blog.html">blog</a>
         <a href="dailies.html">dailies</a>
         <a href="about-min.html">about</a>
         <a href="resources.html">resources</a>
         <div class="nav-actions">
           <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme"></button>
-          <span class="invader-icon" title="👾">👾</span>
         </div>
       </nav>
 
@@ -39,7 +40,17 @@
             <span class="status-dot"></span>
             <span>available for opportunities</span>
           </div>
-          <span>inbox open: <a href="mailto:shresthaishan65@gmail.com" class="contact-email-link">shresthaishan65@gmail.com</a></span>
+          <div class="email-copy-wrap">
+            <span>inbox open:</span>
+            <a href="mailto:shresthaishan65@gmail.com" class="contact-email-link" id="email-address">shresthaishan65@gmail.com</a>
+            <button id="copy-email-btn" class="copy-email-btn" type="button" aria-label="Copy email address" title="Copy to clipboard">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-tooltip">copy</span>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -98,10 +109,16 @@
                         <span class="item-arrow">&nearr;</span>
                       </a>
                     </div>
-                    <span class="tag-pill">wip</span>
+                    <span class="tag-pill">wasm</span>
                   </div>
                   <div class="item-desc">
                     a chess engine compiled to webassembly. minimax, alpha-beta, and a bitboard representation that actually works. has a UI to watch the engine think.
+                  </div>
+                  <div class="tech-tags-list">
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">WebAssembly</span>
+                    <span class="tech-tag">Bitboards</span>
+                    <span class="tech-tag">Minimax &amp; Alpha-Beta</span>
                   </div>
                 </div>
               </div>
@@ -116,28 +133,16 @@
                         <span class="item-arrow">&nearr;</span>
                       </a>
                     </div>
-                    <span class="tag-pill">demo</span>
+                    <span class="tag-pill">algorithms</span>
                   </div>
                   <div class="item-desc">
                     a maze solver that benchmarks bfs, dfs, and a* across different densities. because reading about complexity is one thing, but measuring it is better.
                   </div>
-                </div>
-              </div>
-
-              <div class="item-row">
-                <div class="item-num">02.03</div>
-                <div class="item-main">
-                  <div class="item-header">
-                    <div class="item-title">
-                      <a href="https://github.com/Ishan-bit-maker" target="_blank" rel="noopener noreferrer">
-                        DiffPal
-                        <span class="item-arrow">&nearr;</span>
-                      </a>
-                    </div>
-                    <span class="tag-pill">wip</span>
-                  </div>
-                  <div class="item-desc">
-                    turning git diffs and PRs into documentation automatically. basically a pipeline to save me from writing docs manually.
+                  <div class="tech-tags-list">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Algorithms</span>
+                    <span class="tech-tag">BFS / DFS / A*</span>
+                    <span class="tech-tag">Benchmarking</span>
                   </div>
                 </div>
               </div>
@@ -149,7 +154,7 @@
         </div>
 
         <!-- Recent Posts Section -->
-        <section id="blog" class="content-section" aria-labelledby="h-posts">
+        <section id="posts" class="content-section" aria-labelledby="h-posts">
           <div class="section-head">
             <h2 id="h-posts" class="section-title">
               <span class="section-num">03</span> recent posts
@@ -182,24 +187,77 @@
           </div>
         </section>
 
-        <!-- Aesthetic Strip Section -->
-        <section id="aesthetic" class="content-section" aria-label="Aesthetic strip">
+        <!-- Technical Focus & Toolkit Section -->
+        <section id="toolkit" class="content-section" aria-labelledby="h-toolkit">
           <div class="section-head">
-            <h2 class="section-title">
-              <span class="section-num">04</span> aesthetic
+            <h2 id="h-toolkit" class="section-title">
+              <span class="section-num">04</span> technical focus &amp; toolkit
             </h2>
           </div>
-          <div class="aesthetic-termline">
-            <span class="prompt">$</span> cat /dev/aesthetic <span class="cursor" aria-hidden="true"></span>
-          </div>
-          <div class="imgstrip-container" aria-label="aesthetic images gallery">
-            <div class="imgstrip">
-              <img src="img/img1.jpg" alt="Aesthetic capture 1" loading="lazy" />
-              <img src="img/img2.jpg" alt="Aesthetic capture 2" loading="lazy" />
-              <img src="img/img3.jpg" alt="Aesthetic capture 3" loading="lazy" />
-              <img src="img/img4.jpg" alt="Aesthetic capture 4" loading="lazy" />
-              <img src="img/img5.jpg" alt="Aesthetic capture 5" loading="lazy" />
-              <img src="img/img8.jpg" alt="Aesthetic capture 8" loading="lazy" />
+          <div class="items-list">
+            <div class="item-row">
+              <div class="item-num">04.01</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">systems &amp; low-level</div>
+                </div>
+                <div class="item-desc">
+                  fast, memory-efficient software and learning how hardware and execution models behave under the hood.
+                </div>
+                <div class="tech-tags-list">
+                  <span class="tech-tag">C / C++</span>
+                  <span class="tech-tag">WebAssembly (WASM)</span>
+                  <span class="tech-tag">Linux / Unix</span>
+                  <span class="tech-tag">Memory &amp; Bitboards</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">04.02</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">algorithms &amp; theory</div>
+                </div>
+                <div class="item-desc">
+                  profiling time/space tradeoffs in practice rather than just on paper; heuristic search and graph traversal.
+                </div>
+                <div class="tech-tags-list">
+                  <span class="tech-tag">Graph Algorithms (BFS/DFS/A*)</span>
+                  <span class="tech-tag">Minimax &amp; Alpha-Beta Pruning</span>
+                  <span class="tech-tag">Benchmarking</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">04.03</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">modern web &amp; tooling</div>
+                </div>
+                <div class="item-desc">
+                  lightweight, dependency-conscious software architecture with clean APIs and reliable delivery.
+                </div>
+                <div class="tech-tags-list">
+                  <span class="tech-tag">TypeScript / JavaScript</span>
+                  <span class="tech-tag">HTML5 &amp; Modern CSS</span>
+                  <span class="tech-tag">Git &amp; GitHub</span>
+                  <span class="tech-tag">Shell Scripting</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="item-row">
+              <div class="item-num">04.04</div>
+              <div class="item-main">
+                <div class="item-header">
+                  <div class="item-title">currently reading &amp; exploring</div>
+                </div>
+                <div class="item-desc">
+                  navigating distributed systems and operating systems: Martin Kleppmann's <em>Designing Data-Intensive Applications</em> and MIT 6.1810 (xv6 RISC-V).
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -168,17 +168,6 @@ nav.top-nav a.active {
   transform: scale(1.1);
 }
 
-.invader-icon {
-  font-size: 18px;
-  user-select: none;
-  cursor: default;
-  display: inline-block;
-  transition: transform var(--duration) var(--ease);
-}
-.invader-icon:hover {
-  transform: rotate(12deg) scale(1.15);
-}
-
 /* Header Banner / Archive Kicker */
 .kicker {
   font-family: var(--font-mono);
@@ -473,66 +462,97 @@ h2.section-title {
   white-space: nowrap;
 }
 
-/* Aesthetic Image Strip */
-.aesthetic-termline {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--fg-muted);
-  margin-bottom: 14px;
-  display: flex;
+/* Section scroll margin for smooth navigation */
+section.content-section {
+  scroll-margin-top: 24px;
+}
+
+/* Copy Email Component */
+.email-copy-wrap {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-}
-.aesthetic-termline .prompt {
-  color: var(--fg-faint);
-}
-.aesthetic-termline .cursor {
-  display: inline-block;
-  width: 7px;
-  height: 1.1em;
-  background-color: var(--fg-muted);
-  vertical-align: -2px;
-  animation: blink 1.2s step-end infinite;
+  position: relative;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.imgstrip-container {
-  overflow-x: auto;
-  padding-bottom: 12px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--border) transparent;
-}
-.imgstrip-container::-webkit-scrollbar {
-  height: 6px;
-}
-.imgstrip-container::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-}
-
-.imgstrip {
-  display: flex;
-  gap: 14px;
-  min-width: max-content;
-}
-
-.imgstrip img {
-  width: 144px;
-  height: 184px;
-  object-fit: cover;
-  border-radius: 6px;
+.copy-email-btn {
+  background: none;
   border: 1px solid var(--border);
-  background-color: var(--bg-subtle);
-  transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
+  border-radius: 4px;
+  padding: 3px 6px;
+  cursor: pointer;
+  color: var(--fg-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--duration) var(--ease);
 }
-.imgstrip img:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+.copy-email-btn:hover {
+  color: var(--fg);
   border-color: var(--fg-muted);
+  background-color: var(--bg-subtle);
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.copy-email-btn:hover .copy-tooltip,
+.copy-email-btn.copied .copy-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Project & Toolkit Tags */
+.tech-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-muted);
+  background: var(--tag-bg);
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid var(--border-subtle);
+}
+
+.project-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 12.5px;
+}
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--fg);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border);
+}
+.action-link:hover {
+  text-decoration-color: var(--fg);
 }
 
 /* Footer */
@@ -1047,4 +1067,33 @@ footer.page-footer {
   margin: 40px 0;
   font-family: var(--font-mono);
   font-size: 13px;
+}
+
+/* =========================================================
+   PRINT STYLES FOR CV / RESUME SAVING
+   ========================================================= */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 13px !important;
+  }
+  .wrap {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  nav.top-nav,
+  .nav-actions,
+  .theme-toggle-btn,
+  .copy-email-btn,
+  .more-link {
+    display: none !important;
+  }
+  .item-row {
+    break-inside: avoid;
+    border-top: 1px solid #ccc !important;
+  }
+  .divider {
+    border-top: 1px solid #000 !important;
+  }
 }

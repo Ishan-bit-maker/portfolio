@@ -39,6 +39,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // One-Click Email Copy with visual feedback
+  const copyBtn = document.getElementById("copy-email-btn");
+  if (copyBtn) {
+    const tooltip = copyBtn.querySelector(".copy-tooltip");
+    copyBtn.addEventListener("click", () => {
+      const email = "shresthaishan65@gmail.com";
+      const onCopied = () => {
+        copyBtn.classList.add("copied");
+        if (tooltip) tooltip.textContent = "copied!";
+        setTimeout(() => {
+          copyBtn.classList.remove("copied");
+          if (tooltip) tooltip.textContent = "copy";
+        }, 2000);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(onCopied).catch(onCopied);
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = email;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (e) {}
+        document.body.removeChild(ta);
+        onCopied();
+      }
+    });
+  }
+
   // Smooth Search and Filtering on Resources / Archive page
   const searchInput = document.getElementById("archive-search");
   const filterBtns = document.querySelectorAll(".filter-tag-btn");
@@ -77,6 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
           grp.style.display = "";
         }
       });
+
+      const emptyMsg = document.getElementById("archive-empty");
+      if (emptyMsg) {
+        const totalVisible = document.querySelectorAll(".resource-entry:not(.is-hidden)").length;
+        emptyMsg.style.display = totalVisible === 0 ? "block" : "none";
+      }
     }
 
     if (searchInput) {
