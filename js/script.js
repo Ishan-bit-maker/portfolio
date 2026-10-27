@@ -12,6 +12,30 @@
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
+  const revealTargets = document.querySelectorAll(
+    ".page-header, .items-list > .item-row, .items-list > .post-row, " +
+    ".archive-content > .archive-group, .prose > *, .meta-grid > .meta-row, .page-footer"
+  );
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (revealTargets.length && !prefersReducedMotion && "IntersectionObserver" in window) {
+    document.body.classList.add("motion-enabled");
+
+    const revealObserver = new IntersectionObserver((observations, observer) => {
+      observations.forEach((observation) => {
+        if (observation.isIntersecting) {
+          observation.target.classList.add("is-visible");
+          observer.unobserve(observation.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -40px 0px", threshold: 0.05 });
+
+    revealTargets.forEach((target) => {
+      target.classList.add("motion-reveal");
+      revealObserver.observe(target);
+    });
+  }
+
   // Theme Toggle Button
   const themeToggle = document.getElementById("theme-toggle");
   if (themeToggle) {
