@@ -121,16 +121,33 @@ a:focus-visible {
   transform: none;
 }
 
+.motion-enabled .page-header > :is(.kicker, .page-title, .hero-subtitle, .hero-blurb, .status-pill-line) {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+
+.motion-enabled .page-header.is-visible > :is(.kicker, .page-title, .hero-subtitle, .hero-blurb, .status-pill-line) {
+  opacity: 1;
+  transform: none;
+}
+
+.motion-enabled .page-header.is-visible > .kicker { transition-delay: 40ms; }
+.motion-enabled .page-header.is-visible > .page-title { transition-delay: 100ms; }
+.motion-enabled .page-header.is-visible > .hero-subtitle { transition-delay: 180ms; }
+.motion-enabled .page-header.is-visible > .hero-blurb { transition-delay: 240ms; }
+.motion-enabled .page-header.is-visible > .status-pill-line { transition-delay: 320ms; }
+
 .motion-enabled :is(.items-list, .archive-content, .prose, .meta-grid) > .motion-reveal:nth-child(2) {
-  transition-delay: 60ms;
+  transition-delay: 90ms;
 }
 
 .motion-enabled :is(.items-list, .archive-content, .prose, .meta-grid) > .motion-reveal:nth-child(3) {
-  transition-delay: 120ms;
+  transition-delay: 180ms;
 }
 
 .motion-enabled :is(.items-list, .archive-content, .prose, .meta-grid) > .motion-reveal:nth-child(4) {
-  transition-delay: 180ms;
+  transition-delay: 270ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -169,8 +186,25 @@ nav.top-nav a {
   transition: color var(--duration) var(--ease);
 }
 
+nav.top-nav a:not(.active)::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+  left: 2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s var(--ease);
+}
+
 nav.top-nav a:hover {
   color: var(--fg);
+}
+
+nav.top-nav a:not(.active):hover::after {
+  transform: scaleX(1);
 }
 
 nav.top-nav a.active {
@@ -325,9 +359,31 @@ section.content-section:first-of-type {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  border-bottom: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 8px;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.section-head::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--border-strong);
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.motion-enabled .section-head::after {
+  transform: scaleX(0);
+  transition: transform 0.7s var(--ease);
+}
+
+.motion-enabled .section-head.is-visible::after {
+  transform: scaleX(1);
 }
 
 .section-num {
@@ -373,6 +429,26 @@ h2.section-title {
   transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
   position: relative;
 }
+
+.item-row::before,
+.post-row::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 0;
+  width: 1px;
+  background: var(--fg-muted);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.28s var(--ease);
+}
+
+.item-row:hover::before,
+.post-row:hover::before {
+  transform: scaleY(1);
+}
+
 .item-row:hover {
   background-color: var(--bg-subtle);
   transform: translateX(4px);
@@ -484,6 +560,7 @@ h2.section-title {
   border-top: 1px solid var(--border-subtle);
   border-radius: 6px;
   transition: background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+  position: relative;
 }
 .post-row:hover {
   background-color: var(--bg-subtle);

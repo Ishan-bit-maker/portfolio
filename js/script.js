@@ -13,7 +13,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const revealTargets = document.querySelectorAll(
-    ".page-header, .items-list > .item-row, .items-list > .post-row, " +
+    ".page-header, .section-head, .more-link, .items-list > .item-row, .items-list > .post-row, " +
     ".archive-content > .archive-group, .prose > *, .meta-grid > .meta-row, .page-footer"
   );
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
